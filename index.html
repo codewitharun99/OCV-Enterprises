@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organico by OCV Enterprises — Sustainable Coconut Shell Products</title>
+  <meta name="description" content="Premium handcrafted coconut shell bowls, cups, candles, coir products and eco-friendly home décor. Export-quality, GST verified, direct from Perundurai, Erode, Tamil Nadu. Global exporter." />
+  <meta name="keywords" content="coconut shell bowl, coconut shell candle, coir products, eco friendly products, handmade decor, OCV Enterprises, Organico, Tamil Nadu exporter, Perundurai" />
+  <meta property="og:title" content="Organico by OCV Enterprises — Sustainable Coconut Shell Products" />
+  <meta property="og:description" content="Export-quality handcrafted coconut shell products for wholesalers, retailers, hotels, cafes and importers worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sage: #E8EFE4;
+      --sage-mid: #c8d9bf;
+      --forest: #1A3D2B;
+      --forest-light: #2d6147;
+      --forest-mid: #3d7a5a;
+      --beige: #F5ECD7;
+      --beige-dark: #e8d9be;
+      --cream: #FDFAF4;
+      --brown: #7a4b2a;
+      --text-dark: #1c2b1e;
+      --text-mid: #3e5244;
+      --text-light: #6b8072;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 14px rgba(26,61,43,0.07);
+      --shadow-md: 0 8px 32px rgba(26,61,43,0.12);
+      --shadow-lg: 0 24px 64px rgba(26,61,43,0.18);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --radius-lg: 32px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(253,250,244,0.94); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(26,61,43,0.08);
+      height: 72px; padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: box-shadow .3s;
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-md); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+    .nav-logo-text .brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--forest); display: block; line-height: 1.1; }
+    .nav-logo-text .sub { font-size: 0.6rem; font-weight: 500; color: var(--text-light); letter-spacing: .1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: .9rem; font-weight: 500; transition: color .2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 2px; background: var(--forest); transform: scaleX(0); transition: transform .25s; }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-social { display: flex; gap: 8px; }
+    .nav-social a { width: 34px; height: 34px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; color: var(--forest); transition: all .2s; }
+    .nav-social a:hover { background: var(--forest); color: var(--white); transform: translateY(-2px); }
+    .btn-nav { background: var(--forest); color: var(--white); padding: 9px 22px; border-radius: 50px; font-size: .85rem; font-weight: 600; text-decoration: none; transition: all .2s; }
+    .btn-nav:hover { background: var(--forest-light); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--forest); border-radius: 2px; display: block; transition: all .3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--cream); z-index: 999; padding: 16px 5%; flex-direction: column; box-shadow: var(--shadow-md); border-top: 1px solid var(--sage-mid); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { text-decoration: none; color: var(--text-mid); font-size: 1rem; font-weight: 500; padding: 13px 0; border-bottom: 1px solid var(--sage); }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(140deg, #deebd6 0%, var(--beige) 55%, #eddfc4 100%);
+      display: flex; align-items: center; padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; background: rgba(26,61,43,0.04); top: -200px; right: -180px; pointer-events: none; }
+    .hero::after { content: ''; position: absolute; width: 320px; height: 320px; border-radius: 50%; background: rgba(26,61,43,0.05); bottom: -80px; left: 3%; pointer-events: none; }
+    .hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--sage-mid); padding: 7px 16px; border-radius: 50px; font-size: .75rem; font-weight: 700; color: var(--forest); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; }
+    .hero-tag .dot { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)} }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3.4rem); font-weight: 900; line-height: 1.15; color: var(--forest); margin-bottom: 20px; }
+    .hero-title em { font-style: italic; color: var(--forest-mid); }
+    .hero-sub { font-size: 1rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 34px; max-width: 520px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .btn-primary { background: var(--forest); color: var(--white); padding: 14px 28px; border-radius: 50px; font-size: .92rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all .25s; box-shadow: 0 4px 18px rgba(26,61,43,0.28); }
+    .btn-primary:hover { background: var(--forest-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,61,43,0.32); }
+    .btn-secondary { background: transparent; color: var(--forest); padding: 13px 26px; border-radius: 50px; font-size: .92rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--forest); transition: all .25s; }
+    .btn-secondary:hover { background: var(--forest); color: var(--white); transform: translateY(-2px); }
+    .btn-whatsapp { background: #25D366; color: var(--white); padding: 13px 22px; border-radius: 50px; font-size: .92rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all .25s; box-shadow: 0 4px 18px rgba(37,211,102,0.3); }
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--white); border-radius: 50px; padding: 7px 14px; font-size: .75rem; font-weight: 500; color: var(--text-mid); border: 1px solid var(--sage-mid); }
+    .hero-img-wrap { position: relative; }
+    .hero-img-main { width: 100%; max-width: 500px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/5; margin-left: auto; }
+    .hero-img-main img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .hero-img-main:hover img { transform: scale(1.04); }
+    .hero-float-badge { position: absolute; bottom: 28px; left: 0; background: var(--white); border-radius: var(--radius-sm); padding: 14px 20px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; }
+    .hero-float-badge .num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--forest); line-height: 1; }
+    .hero-float-badge .lbl { font-size: .68rem; font-weight: 500; color: var(--text-light); text-transform: uppercase; letter-spacing: .04em; }
+    .hero-rating-badge { position: absolute; top: 28px; right: -10px; background: var(--forest); color: var(--white); border-radius: var(--radius-sm); padding: 12px 16px; font-size: .8rem; font-weight: 600; box-shadow: var(--shadow-md); text-align: center; }
+    .hero-rating-badge .stars { color: #ffd700; letter-spacing: 1px; }
+
+    /* ── SECTION COMMON ── */
+    .section-tag { display: inline-block; background: var(--sage); color: var(--forest); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 16px; border-radius: 50px; margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3.2vw,2.7rem); font-weight: 700; color: var(--forest); line-height: 1.25; margin-bottom: 12px; }
+    .section-sub { font-size: .97rem; color: var(--text-light); line-height: 1.75; max-width: 560px; }
+    .divider { width: 52px; height: 3px; background: linear-gradient(90deg, var(--forest), var(--forest-mid)); border-radius: 2px; margin: 14px 0 20px; }
+    .divider.center { margin: 14px auto 20px; }
+    .section-header { margin-bottom: 50px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ── PRODUCT MARQUEE ── */
+    .marquee-strip { background: var(--forest); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+    .marquee-inner { display: inline-flex; animation: marquee 22s linear infinite; }
+    .marquee-inner span { color: rgba(255,255,255,0.75); font-size: .82rem; font-weight: 500; padding: 0 32px; letter-spacing: .08em; text-transform: uppercase; }
+    .marquee-inner span.dot { color: #a8d5b5; padding: 0; font-size: 1rem; }
+    @keyframes marquee { 0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
+
+    /* ── PRODUCTS ── */
+    .products { padding: 96px 5%; background: var(--cream); }
+    .products-inner { max-width: 1280px; margin: 0 auto; }
+    .product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+    .product-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s; border: 1px solid rgba(26,61,43,0.06); }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .product-img-wrap { position: relative; overflow: hidden; aspect-ratio: 1/1; background: var(--sage); }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .product-card:hover .product-img-wrap img { transform: scale(1.07); }
+    .prod-badge-eco { position: absolute; top: 10px; left: 10px; background: var(--forest); color: var(--white); font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 50px; letter-spacing: .05em; text-transform: uppercase; }
+    .prod-badge-price { position: absolute; top: 10px; right: 10px; background: var(--beige); color: var(--brown); font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 50px; border: 1px solid var(--beige-dark); }
+    .product-info { padding: 16px 18px 18px; }
+    .product-info h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 5px; }
+    .product-info p { font-size: .8rem; color: var(--text-light); line-height: 1.55; margin-bottom: 13px; }
+    .product-link { display: block; text-align: center; background: var(--sage); color: var(--forest); padding: 9px; border-radius: var(--radius-sm); font-size: .8rem; font-weight: 600; text-decoration: none; transition: all .2s; }
+    .product-link:hover { background: var(--forest); color: var(--white); }
+
+    /* ── ABOUT ── */
+    .about { padding: 96px 5%; background: var(--beige); }
+    .about-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-img-stack { position: relative; height: 500px; }
+    .about-img-a { width: 75%; aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: absolute; bottom: 0; left: 0; }
+    .about-img-a img { width:100%; height:100%; object-fit:cover; }
+    .about-img-b { width: 50%; aspect-ratio: 1/1; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); position: absolute; top: 0; right: 0; border: 5px solid var(--beige); }
+    .about-img-b img { width:100%; height:100%; object-fit:cover; }
+    .about-yrs { position: absolute; bottom: 28px; right: 0; background: var(--forest); color: var(--white); padding: 18px 22px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-md); }
+    .about-yrs .num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1; }
+    .about-yrs .lbl { font-size: .68rem; opacity: .8; margin-top: 3px; text-transform: uppercase; letter-spacing: .05em; }
+    .about-content p { font-size: .95rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 18px; }
+    .about-ceo { display: flex; align-items: center; gap: 14px; background: var(--white); border-radius: var(--radius-sm); padding: 16px 20px; margin-top: 8px; margin-bottom: 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(26,61,43,0.06); }
+    .about-ceo .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--forest); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display',serif; font-size: 1.2rem; font-weight: 700; color: var(--white); flex-shrink:0; }
+    .about-ceo .ceo-name { font-size: .88rem; font-weight: 700; color: var(--text-dark); }
+    .about-ceo .ceo-title { font-size: .72rem; color: var(--text-light); }
+    .about-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .stat-box { background: var(--white); border-radius: var(--radius-sm); padding: 18px; text-align: center; box-shadow: var(--shadow-sm); }
+    .stat-box .num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--forest); }
+    .stat-box .lbl { font-size: .72rem; color: var(--text-light); margin-top: 3px; font-weight: 500; }
+
+    /* ── EXPORT ── */
+    .export { padding: 96px 5%; background: var(--forest); position: relative; overflow: hidden; }
+    .export::before { content: '🌿'; position: absolute; font-size: 280px; top: -40px; right: -30px; opacity: .04; pointer-events: none; }
+    .export-inner { max-width: 1280px; margin: 0 auto; }
+    .export .section-tag { background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); }
+    .export .section-title { color: var(--white); }
+    .export .section-sub { color: rgba(255,255,255,.6); }
+    .export .divider { background: linear-gradient(90deg,#a8d5b5,#5fa880); }
+    .export-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 46px; }
+    .export-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 34px 26px; transition: background .3s, transform .3s; }
+    .export-card:hover { background: rgba(255,255,255,.12); transform: translateY(-4px); }
+    .export-icon { width: 54px; height: 54px; background: rgba(255,255,255,.1); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 18px; }
+    .export-card h3 { font-family: 'Playfair Display',serif; font-size: 1.2rem; color: var(--white); margin-bottom: 9px; }
+    .export-card p { font-size: .86rem; color: rgba(255,255,255,.6); line-height: 1.65; margin-bottom: 20px; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 7px; border: 1.5px solid rgba(255,255,255,.5); color: var(--white); padding: 10px 20px; border-radius: 50px; font-size: .84rem; font-weight: 600; text-decoration: none; transition: all .25s; }
+    .btn-ghost:hover { background: var(--white); color: var(--forest); }
+    .export-cta { text-align: center; margin-top: 50px; }
+
+    /* ── WHY ── */
+    .why { padding: 96px 5%; background: var(--sage); }
+    .why-inner { max-width: 1280px; margin: 0 auto; }
+    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+    .why-card { background: var(--white); border-radius: var(--radius); padding: 34px 26px; box-shadow: var(--shadow-sm); border: 1px solid rgba(26,61,43,0.06); transition: transform .3s, box-shadow .3s; }
+    .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .why-icon { width: 58px; height: 58px; background: var(--sage); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+    .why-card h3 { font-family: 'Playfair Display',serif; font-size: 1.05rem; color: var(--forest); margin-bottom: 8px; }
+    .why-card p { font-size: .83rem; color: var(--text-light); line-height: 1.65; }
+
+    /* ── REVIEWS ── */
+    .reviews { padding: 96px 5%; background: var(--cream); }
+    .reviews-inner { max-width: 1280px; margin: 0 auto; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .review-card { background: var(--white); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-sm); border: 1px solid rgba(26,61,43,0.06); transition: transform .3s; }
+    .review-card:hover { transform: translateY(-4px); }
+    .review-stars { color: #f5a623; font-size: .95rem; letter-spacing: 2px; margin-bottom: 12px; }
+    .review-text { font-size: .9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .author-av { width: 40px; height: 40px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--forest); flex-shrink: 0; }
+    .author-name { font-size: .86rem; font-weight: 600; color: var(--text-dark); }
+    .author-loc { font-size: .73rem; color: var(--text-light); }
+
+    /* ── CONTACT ── */
+    .contact { padding: 96px 5%; background: var(--beige); }
+    .contact-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; align-items: start; }
+    .contact-info-wrap p { font-size: .94rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 28px; }
+    .contact-list { display: flex; flex-direction: column; gap: 14px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; padding: 15px 18px; background: var(--white); border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); text-decoration: none; border: 1px solid rgba(26,61,43,0.06); transition: transform .2s, box-shadow .2s; }
+    .contact-item:hover { transform: translateX(5px); box-shadow: var(--shadow-md); }
+    .c-icon { width: 42px; height: 42px; background: var(--sage); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .c-label { font-size: .68rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: .07em; }
+    .c-val { font-size: .88rem; font-weight: 600; color: var(--text-dark); }
+    .map-box { margin-top: 22px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .map-box iframe { width: 100%; height: 190px; border: none; display: block; }
+    .contact-form-box { background: var(--white); border-radius: var(--radius-lg); padding: 42px; box-shadow: var(--shadow-md); border: 1px solid rgba(26,61,43,0.06); }
+    .contact-form-box h3 { font-family: 'Playfair Display',serif; font-size: 1.55rem; color: var(--forest); margin-bottom: 26px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .fg label { font-size: .78rem; font-weight: 600; color: var(--text-mid); }
+    .fg input, .fg select, .fg textarea { padding: 11px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--sage-mid); background: var(--sage); font-family: 'DM Sans',sans-serif; font-size: .88rem; color: var(--text-dark); transition: border-color .2s, background .2s; outline: none; }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--forest); background: var(--white); box-shadow: 0 0 0 3px rgba(26,61,43,0.07); }
+    .fg textarea { resize: vertical; min-height: 105px; }
+    .form-btn { width: 100%; padding: 15px; border-radius: 50px; background: var(--forest); color: var(--white); font-family: 'DM Sans',sans-serif; font-size: .97rem; font-weight: 700; border: none; cursor: pointer; transition: all .25s; box-shadow: 0 4px 18px rgba(26,61,43,0.25); }
+    .form-btn:hover { background: var(--forest-light); transform: translateY(-2px); }
+    .form-ok { display: none; background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; padding: 13px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 500; text-align: center; margin-top: 12px; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text-dark); color: rgba(255,255,255,.7); padding: 70px 5% 28px; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 48px; }
+    .f-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .f-logo img { width: 44px; height: 44px; border-radius: 50%; }
+    .f-logo .brand { font-family: 'Playfair Display',serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .f-tagline { font-size: .84rem; line-height: 1.65; margin-bottom: 22px; }
+    .f-socials { display: flex; gap: 9px; }
+    .f-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; text-decoration: none; color: rgba(255,255,255,.65); transition: all .2s; }
+    .f-social:hover { background: var(--forest-mid); color: var(--white); transform: translateY(-2px); }
+    .f-col h4 { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--white); margin-bottom: 16px; }
+    .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .f-col ul li a { text-decoration: none; color: rgba(255,255,255,.55); font-size: .85rem; transition: color .2s; }
+    .f-col ul li a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: .78rem; color: rgba(255,255,255,.35); }
+
+    /* ── FLOAT WA ── */
+    .float-wa { position: fixed; bottom: 26px; right: 26px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: var(--white); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 22px rgba(37,211,102,.45); animation: wa-pulse 2.8s infinite; transition: transform .2s; }
+    .float-wa:hover { transform: scale(1.1); }
+    @keyframes wa-pulse { 0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.45)}50%{box-shadow:0 4px 34px rgba(37,211,102,.7),0 0 0 12px rgba(37,211,102,.07)} }
+    .float-wa-tip { position: absolute; right: 66px; top: 50%; transform: translateY(-50%); background: var(--text-dark); color: var(--white); font-size: .76rem; font-weight: 500; padding: 5px 11px; border-radius: var(--radius-sm); white-space: nowrap; opacity: 0; transition: opacity .2s; pointer-events: none; }
+    .float-wa:hover .float-wa-tip { opacity: 1; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rl { opacity: 0; transform: translateX(-36px); transition: opacity .65s ease, transform .65s ease; }
+    .rl.visible { opacity: 1; transform: none; }
+    .rr { opacity: 0; transform: translateX(36px); transition: opacity .65s ease, transform .65s ease; }
+    .rr.visible { opacity: 1; transform: none; }
+    .stagger > * { opacity: 0; transform: translateY(22px); transition: opacity .5s ease, transform .5s ease; }
+    .stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.0s}
+    .stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
+    .stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.18s}
+    .stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
+    .stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.34s}
+    .stagger.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:.42s}
+    .stagger.visible > *:nth-child(7){opacity:1;transform:none;transition-delay:.5s}
+    .stagger.visible > *:nth-child(8){opacity:1;transform:none;transition-delay:.58s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){.product-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.footer-top{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.nav-links,.nav-right{display:none}.hamburger{display:flex}.hero-inner{grid-template-columns:1fr;gap:32px}.hero-img-wrap{order:-1}.hero-img-main{max-width:100%;aspect-ratio:16/9}.about-inner,.contact-inner{grid-template-columns:1fr}.about-img-stack{height:340px}.export-grid,.reviews-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.hero{padding:90px 5% 44px}.hero-ctas{flex-direction:column}.btn-primary,.btn-secondary,.btn-whatsapp{width:100%;justify-content:center}.product-grid{grid-template-columns:1fr 1fr;gap:12px}.why-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.about-stats{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="LOGO_PLACEHOLDER" alt="Organico Eco Farms Logo" />
+    <div class="nav-logo-text">
+      <span class="brand">Organico</span>
+      <span class="sub">by OCV Enterprises</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#export">Export</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://www.instagram.com/organico._" target="_blank" aria-label="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@OCVEnterprises" target="_blank" aria-label="YouTube">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.52v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+    </div>
+    <a href="#contact" class="btn-nav">Get Quote</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#products" onclick="closeMobile()">Products</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#export" onclick="closeMobile()">Export</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://wa.me/918047522509" target="_blank" style="color:#25D366;font-weight:700;">💬 WhatsApp Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag"><span class="dot"></span>GST Verified · TrustSEAL · IEC Certified Exporter</div>
+      <h1 class="hero-title">Sustainable <em>Coconut Shell</em> Products for Global Buyers</h1>
+      <p class="hero-sub">Premium handcrafted coconut shell bowls, cups, candles, coir products &amp; eco-friendly home décor — export-quality from Perundurai, Tamil Nadu. Trusted by wholesalers, hotels, cafés, gift brands &amp; importers worldwide.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Request a Quote
+        </a>
+        <a href="#products" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Browse Products
+        </a>
+        <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%2C%20I%20am%20interested%20in%20your%20eco%20products" target="_blank" class="btn-whatsapp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.552 4.094 1.518 5.813L.027 23.926l6.256-1.641A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.81 9.81 0 0 1-5.002-1.366l-.358-.213-3.713.974.99-3.617-.234-.372A9.806 9.806 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12c0 5.43-4.388 9.818-9.818 9.818z"/></svg>WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">⭐ 4.8 on IndiaMART (29 reviews)</span>
+        <span class="badge">✅ GST &amp; IEC Verified</span>
+        <span class="badge">🌍 Worldwide Export</span>
+        <span class="badge">🏡 Family-Owned Farm Business</span>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-main">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/478882389/VC/ET/JD/107095812/2002-250x250.jpg" alt="OCV Enterprises Coconut Shell Products" loading="eager" style="object-fit:cover;width:100%;height:100%;" onerror="this.src='https://images.unsplash.com/photo-1607301406259-dfb186e15de8?w=800'" />
+      </div>
+      <div class="hero-float-badge">
+        <div>
+          <div class="num">100+</div>
+          <div class="lbl">Product Variants</div>
+        </div>
+      </div>
+      <div class="hero-rating-badge">
+        <div class="stars">★★★★★</div>
+        <div style="font-size:.72rem;margin-top:4px;opacity:.85;">4.8 / 5 · 29 Reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Coconut Shell Bowls</span><span class="dot">✦</span>
+    <span>Soy Wax Candles</span><span class="dot">✦</span>
+    <span>Coffee Cups</span><span class="dot">✦</span>
+    <span>Hanging Planters</span><span class="dot">✦</span>
+    <span>Incense Holders</span><span class="dot">✦</span>
+    <span>Coir Products</span><span class="dot">✦</span>
+    <span>Coconut Shell Purse</span><span class="dot">✦</span>
+    <span>Cold Pressed Coconut Oil</span><span class="dot">✦</span>
+    <span>Export Ready</span><span class="dot">✦</span>
+    <span>GST Verified</span><span class="dot">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>Coconut Shell Bowls</span><span class="dot">✦</span>
+    <span>Soy Wax Candles</span><span class="dot">✦</span>
+    <span>Coffee Cups</span><span class="dot">✦</span>
+    <span>Hanging Planters</span><span class="dot">✦</span>
+    <span>Incense Holders</span><span class="dot">✦</span>
+    <span>Coir Products</span><span class="dot">✦</span>
+    <span>Coconut Shell Purse</span><span class="dot">✦</span>
+    <span>Cold Pressed Coconut Oil</span><span class="dot">✦</span>
+    <span>Export Ready</span><span class="dot">✦</span>
+    <span>GST Verified</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="section-header center reveal">
+      <span class="section-tag">Our Products</span>
+      <h2 class="section-title">Handcrafted Coconut Shell Collection</h2>
+      <div class="divider center"></div>
+      <p class="section-sub">100% Natural · Polished Finish · Export Ready — Each piece is made from sustainably sourced coconut shells and finished to international standards.</p>
+    </div>
+    <div class="product-grid stagger">
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/478882389/VC/ET/JD/107095812/2002-250x250.jpg" alt="200ml Glossy Coconut Shell Bowl" loading="lazy" />
+          <span class="prod-badge-eco">Bestseller</span>
+          <span class="prod-badge-price">₹31/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>200ml Glossy Shell Bowl</h3>
+          <p>Food-safe, polished finish. Ideal for salads, ice cream, hotels &amp; gifting.</p>
+          <a href="https://m.indiamart.com/proddetail/200ml-glossy-coconut-shell-bowl-2855585309230.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479004984/YF/OD/GN/107095812/300ml-wavy-coconut-shell-bowl-250x250.jpg" alt="Round Coconut Shell Spices Candle" loading="lazy" />
+          <span class="prod-badge-eco">Handmade</span>
+          <span class="prod-badge-price">₹99/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>Shell Spices Soy Candle</h3>
+          <p>100g soy wax, cotton wick, spiced fragrance. Perfect for gifting &amp; home décor.</p>
+          <a href="https://m.indiamart.com/proddetail/round-coconut-shell-spices-candle-2855523262373.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479100545/AC/RL/QC/107095812/300ml-coconut-shell-coffee-cup-250x250.jpg" alt="150ml Coconut Shell Coffee Cup" loading="lazy" />
+          <span class="prod-badge-eco">Café Ready</span>
+          <span class="prod-badge-price">₹75/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>150ml Coffee Cup</h3>
+          <p>Polished round base shell cup. Unique eco alternative for cafés &amp; restaurants.</p>
+          <a href="https://m.indiamart.com/proddetail/150ml-coconut-shell-coffee-cup-2855550057391.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479287362/LI/TP/GH/107095812/ci2-250x250.jpg" alt="Coconut Shell T-Light Candle Holder" loading="lazy" />
+          <span class="prod-badge-eco">Décor</span>
+          <span class="prod-badge-price">₹159/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>T-Light Candle Holder</h3>
+          <p>500ml decorative holder for kitchen, dining table or garden. Zero plastic.</p>
+          <a href="https://m.indiamart.com/proddetail/coconut-shell-t-light-decorative-candle-holder-2855594284373.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479148135/WR/ZL/RB/107095812/5-inch-coconut-shell-hanging-flower-planter-250x250.jpg" alt="Coconut Shell Hanging Planter" loading="lazy" />
+          <span class="prod-badge-eco">Planter</span>
+          <span class="prod-badge-price">₹88/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>Hanging Shell Planter Pot</h3>
+          <p>5-inch polished hanging pot — perfect for indoor plants &amp; balcony décor.</p>
+          <a href="https://m.indiamart.com/proddetail/coconut-shell-hanging-pot-2855591011655.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg" alt="Coconut Shell Incense Stick Holder" loading="lazy" />
+          <span class="prod-badge-eco">Spiritual</span>
+          <span class="prod-badge-price">₹69/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>Incense Stick Holder</h3>
+          <p>2.5-inch round shell stand. For pooja rooms, yoga studios &amp; aromatherapy.</p>
+          <a href="https://m.indiamart.com/proddetail/coconut-shell-incense-stick-holders-2855594463633.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg" alt="Cold Pressed Coconut Oil" loading="lazy" />
+          <span class="prod-badge-eco">Farm Fresh</span>
+          <span class="prod-badge-price">₹270/L</span>
+        </div>
+        <div class="product-info">
+          <h3>Expeller Pressed Coconut Oil</h3>
+          <p>Pure cold-pressed coconut cooking oil. 15L containers, Made in India.</p>
+          <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2026/3/594346792/FW/RV/JR/107095812/whatsapp-image-2025-10-22-at-7-11-08-pm-1-250x250.jpeg" alt="Coconut Shell Purse" loading="lazy" />
+          <span class="prod-badge-eco">Gift</span>
+          <span class="prod-badge-price">₹159/pc</span>
+        </div>
+        <div class="product-info">
+          <h3>Coconut Shell Purse</h3>
+          <p>200ml natural polished shell purse. Unique corporate gift &amp; handicraft item.</p>
+          <a href="https://m.indiamart.com/proddetail/coconut-shell-purse-2856630778212.html" target="_blank" class="product-link">View on IndiaMART →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;" class="reveal">
+      <a href="https://www.indiamart.com/ocv-enterprises/products.html" target="_blank" class="btn-secondary">View All 100+ Products on IndiaMART <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img-stack rl">
+      <div class="about-img-a">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479004984/YF/OD/GN/107095812/300ml-wavy-coconut-shell-bowl-250x250.jpg" alt="OCV Enterprises handcrafted products" loading="lazy" />
+      </div>
+      <div class="about-img-b">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg" alt="Coconut shell incense holder" loading="lazy" />
+      </div>
+      <div class="about-yrs">
+        <div class="num">5+</div>
+        <div class="lbl">Years of<br/>Excellence</div>
+      </div>
+    </div>
+    <div class="about-content rr">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">A Family Farm Business<br/>Rooted in Coconuts</h2>
+      <div class="divider"></div>
+      <p>OCV Enterprises is a family-owned business with a deep connection to agriculture. Our story began on a farm, and that heritage fuels our passion for creating high-quality, value-added products from a sustainable source — the coconut.</p>
+      <p>We are a <strong>vertically integrated coconut company</strong> — managing the entire process from sourcing coconut shells directly from farms to crafting beautiful, functional creations. Our skilled artisans and advanced machinery allow us to produce a diverse range of bowls, candles, cups, planters, oil, and more.</p>
+      <div class="about-ceo">
+        <div class="avatar">VS</div>
+        <div>
+          <div class="ceo-name">V. Sumathi</div>
+          <div class="ceo-title">Founder &amp; CEO, OCV Enterprises</div>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box"><div class="num">4.8★</div><div class="lbl">IndiaMART Rating</div></div>
+        <div class="stat-box"><div class="num">29+</div><div class="lbl">Verified Reviews</div></div>
+        <div class="stat-box"><div class="num">100+</div><div class="lbl">Product Variants</div></div>
+        <div class="stat-box"><div class="num">🌍</div><div class="lbl">Global Export Ready</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPORT -->
+<section class="export" id="export">
+  <div class="export-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Bulk &amp; Export</span>
+      <h2 class="section-title">Bulk Orders &amp; Global Export<br/>Made Easy</h2>
+      <div class="divider"></div>
+      <p class="section-sub">IEC-certified exporter supplying to wholesalers, importers and brand partners across USA, UK, Europe, Middle East, Southeast Asia and beyond.</p>
+    </div>
+    <div class="export-grid stagger">
+      <div class="export-card">
+        <div class="export-icon">🌍</div>
+        <h3>Worldwide Export</h3>
+        <p>IEC code: BVX*****4L. We fulfill international orders with proper documentation, export packaging and on-time dispatch.</p>
+        <a href="#contact" class="btn-ghost">Enquire Now</a>
+      </div>
+      <div class="export-card">
+        <div class="export-icon">📦</div>
+        <h3>Custom &amp; Private Label</h3>
+        <p>Custom shapes, branded packaging, gift boxes and private label options available. Perfect for retail chains and corporate gifting brands.</p>
+        <a href="#contact" class="btn-ghost">Get Samples</a>
+      </div>
+      <div class="export-card">
+        <div class="export-icon">🤝</div>
+        <h3>Flexible MOQ</h3>
+        <p>Competitive pricing with flexible minimum order quantities for traders and importers. Wholesale discounts on bulk orders.</p>
+        <a href="#contact" class="btn-ghost">View Pricing</a>
+      </div>
+    </div>
+    <div class="export-cta reveal">
+      <a href="#contact" class="btn-ghost">Request Export Catalogue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why-inner">
+    <div class="section-header center reveal">
+      <span class="section-tag">Why Choose Us</span>
+      <h2 class="section-title">The Organico Difference</h2>
+      <div class="divider center"></div>
+      <p class="section-sub">We don't just sell products — we deliver trust, quality, and a commitment to the planet with every order.</p>
+    </div>
+    <div class="why-grid stagger">
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h3>100% Natural &amp; Eco-Friendly</h3>
+        <p>No chemicals, no plastics — pure coconut shell and coir, sustainably sourced. Every product is biodegradable and earth-safe.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✅</div>
+        <h3>GST Verified &amp; TrustSEAL</h3>
+        <p>5 years on IndiaMART with TrustSEAL certification. IEC-certified exporter with UDYAM MSME registration. 4.8★ from 29 verified buyers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎨</div>
+        <h3>Custom Designs Available</h3>
+        <p>Sizes, finishes, engravings, and brand labels can all be customised as per your buyer's specifications and quantity requirements.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h3>Farm-to-Export Supply Chain</h3>
+        <p>Vertically integrated — we source directly from farms, craft in-house, and ship pan-India &amp; internationally with proper export documents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews-inner">
+    <div class="section-header center reveal">
+      <span class="section-tag">Customer Reviews</span>
+      <h2 class="section-title">What Our Buyers Say</h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto;">Rated 4.8★ on IndiaMART with 29 verified reviews from buyers across India and globally.</p>
+    </div>
+    <div class="reviews-grid stagger">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excellent quality coconut shell bowls. Finish and packaging were perfect for our hotel chain — will place repeat bulk orders. Highly recommended."</p>
+        <div class="review-author"><div class="author-av">R</div><div><div class="author-name">Ravi Kumar</div><div class="author-loc">Hotel Chain Buyer, Chennai</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The soy wax coconut candles are a bestseller in our eco-gift store. Very responsive team, reasonable MOQ, and beautifully packaged products."</p>
+        <div class="review-author"><div class="author-av">P</div><div><div class="author-name">Priya Sharma</div><div class="author-loc">Gift Store Owner, Bangalore</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We import these products for our European retail brand. Quality is consistent across every shipment and export documentation is always in perfect order."</p>
+        <div class="review-author"><div class="author-av">M</div><div><div class="author-name">Marco Bianchi</div><div class="author-loc">Importer, Italy</div></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:38px;" class="reveal">
+      <a href="https://m.indiamart.com/ocv-enterprises/testimonial.html" target="_blank" class="btn-secondary">Read All 29 Reviews on IndiaMART</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info-wrap rl">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title" style="margin-top:10px;">Let's Work<br/>Together</h2>
+      <div class="divider"></div>
+      <p>Ready to place a bulk order, request samples, or need a custom quote? Reach out — we typically respond within a few hours.</p>
+      <div class="contact-list">
+        <a href="tel:+918047522509" class="contact-item">
+          <div class="c-icon">📞</div>
+          <div><div class="c-label">Phone</div><div class="c-val">+91 80475 22509</div></div>
+        </a>
+        <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%2C%20I%20am%20interested%20in%20your%20products" target="_blank" class="contact-item">
+          <div class="c-icon">💬</div>
+          <div><div class="c-label">WhatsApp</div><div class="c-val">Chat with us on WhatsApp</div></div>
+        </a>
+        <a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank" class="contact-item">
+          <div class="c-icon">📍</div>
+          <div><div class="c-label">Address</div><div class="c-val">Perundurai, Erode, Tamil Nadu — 638052</div></div>
+        </a>
+        <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="contact-item">
+          <div class="c-icon">🛒</div>
+          <div><div class="c-label">IndiaMART Store</div><div class="c-val">indiamart.com/ocv-enterprises</div></div>
+        </a>
+        <a href="https://www.instagram.com/organico._" target="_blank" class="contact-item">
+          <div class="c-icon">📸</div>
+          <div><div class="c-label">Instagram</div><div class="c-val">@organico._ — Follow for updates</div></div>
+        </a>
+        <a href="https://www.youtube.com/@OCVEnterprises" target="_blank" class="contact-item">
+          <div class="c-icon">▶️</div>
+          <div><div class="c-label">YouTube</div><div class="c-val">@OCVEnterprises</div></div>
+        </a>
+      </div>
+      <div class="map-box">
+        <iframe src="https://maps.google.com/maps?q=Perundurai,Erode,Tamil+Nadu,India&z=13&output=embed" allowfullscreen loading="lazy" title="OCV Enterprises Location"></iframe>
+      </div>
+    </div>
+    <div class="contact-form-box rr">
+      <h3>Send an Enquiry</h3>
+      <div class="form-row">
+        <div class="fg"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name" /></div>
+        <div class="fg"><label>Email Address *</label><input type="email" id="femail" placeholder="you@company.com" /></div>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="fphone" placeholder="+91 or country code" /></div>
+        <div class="fg"><label>Order Quantity</label><input type="text" id="fqty" placeholder="e.g. 500 pieces / 50 kg" /></div>
+      </div>
+      <div class="fg"><label>Product Interest *</label>
+        <select id="fproduct">
+          <option value="">— Select a Product —</option>
+          <option>200ml Glossy Coconut Shell Bowl</option>
+          <option>Round Coconut Shell Spices Candle</option>
+          <option>150ml Coconut Shell Coffee Cup</option>
+          <option>T-Light Decorative Candle Holder</option>
+          <option>Coconut Shell Hanging Planter</option>
+          <option>Coconut Shell Incense Stick Holder</option>
+          <option>Expeller Pressed Coconut Oil</option>
+          <option>Coconut Shell Purse</option>
+          <option>Coir Products</option>
+          <option>Multiple / Mixed Products</option>
+          <option>Other / Custom</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea id="fmsg" placeholder="Tell us your requirements — product details, quantity, destination country, packaging needs, any custom requirements..."></textarea></div>
+      <button class="form-btn" onclick="submitForm()">Send Enquiry →</button>
+      <div class="form-ok" id="form-ok">✅ Thank you! Your enquiry has been received. We'll respond shortly. You can also WhatsApp us at +91 80475 22509 for a faster reply.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">
+          <img src="LOGO_PLACEHOLDER" alt="Organico Logo" />
+          <span class="brand">Organico</span>
+        </div>
+        <p class="f-tagline">by OCV Enterprises — Crafted from Nature,<br/>Made for the World.<br/><br/>📍 Perundurai, Erode, Tamil Nadu — 638052<br/>📞 +91 80475 22509<br/>GST: 33**********1ZD | IEC: BVX*****4L</p>
+        <div class="f-socials">
+          <a href="https://www.instagram.com/organico._" target="_blank" class="f-social" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@OCVEnterprises" target="_blank" class="f-social" aria-label="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.52v-7l6.5 3.5-6.5 3.5z"/></svg>
+          </a>
+          <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="f-social" aria-label="IndiaMART">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </a>
+          <a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank" class="f-social" aria-label="Google Maps">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#export">Export &amp; Bulk</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Coconut Shell Bowls</a></li>
+          <li><a href="#products">Soy Wax Candles</a></li>
+          <li><a href="#products">Coffee Cups</a></li>
+          <li><a href="#products">Hanging Planters</a></li>
+          <li><a href="#products">Incense Holders</a></li>
+          <li><a href="#products">Coconut Oil</a></li>
+          <li><a href="#products">Shell Purse &amp; Gifts</a></li>
+          <li><a href="#products">Coir Products</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/organico._" target="_blank">Instagram @organico._</a></li>
+          <li><a href="https://www.youtube.com/@OCVEnterprises" target="_blank">YouTube @OCVEnterprises</a></li>
+          <li><a href="https://www.indiamart.com/ocv-enterprises/" target="_blank">IndiaMART Store</a></li>
+          <li><a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank">Google Maps Location</a></li>
+          <li><a href="tel:+918047522509">+91 80475 22509</a></li>
+          <li><a href="https://wa.me/918047522509" target="_blank">WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 OCV Enterprises (Organico), Perundurai, Erode, Tamil Nadu — 638052. All rights reserved.</p>
+      <p>Designed with 🌿 for the planet · GST: 33**1ZD · UDYAM-TN-07-****661</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%2C%20I%20am%20interested%20in%20your%20products" target="_blank" class="float-wa" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.552 4.094 1.518 5.813L.027 23.926l6.256-1.641A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.81 9.81 0 0 1-5.002-1.366l-.358-.213-3.713.974.99-3.617-.234-.372A9.806 9.806 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12c0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+  <span class="float-wa-tip">Chat with us!</span>
+</a>
+
+<script>
+  // Inject logo base64
+  const LOGO_DATA = 'data:image/webp;base64,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';
+  document.querySelectorAll('img[src="LOGO_PLACEHOLDER"]').forEach(img => img.src = LOGO_DATA);
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', scrollY > 40));
+
+  // Mobile menu
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+  function closeMobile() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal,.rl,.rr,.stagger').forEach(el => obs.observe(el));
+
+  // Form submit
+  function submitForm() {
+    const n = document.getElementById('fname').value.trim();
+    const e = document.getElementById('femail').value.trim();
+    if (!n || !e) { alert('Please enter your name and email.'); return; }
+    const ok = document.getElementById('form-ok');
+    ok.style.display = 'block';
+    const btn = document.querySelector('.form-btn');
+    btn.textContent = '✅ Enquiry Sent!';
+    btn.disabled = true;
+    btn.style.background = '#4caf50';
+  }
+</script>
+</body>
+</html>
