@@ -16,7 +16,7 @@
   document.querySelectorAll('.reveal,.rl,.rr,.stagger').forEach(el => obs.observe(el));
 
 
-  // ── SCROLL TO TOP ──
+  // ── SCROLL TO TOP ── 
   const scrollBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => scrollBtn.classList.toggle('show', scrollY > 400));
   scrollBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
