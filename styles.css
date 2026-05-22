@@ -1,4 +1,4 @@
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --sage: #E8EFE4;
       --sage-mid: #c8d9bf;
@@ -283,6 +283,7 @@
 
     /* ── EXPORT MAP ── */
     .export-map-sec { padding:96px 5%; background:var(--cream); }
+    .domestic-map-sec { padding:96px 5%; background:var(--beige); }
     .export-map-inner { max-width:1280px; margin:0 auto; }
     .map-svg-wrap { background:var(--sage); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-md); margin-top:40px; position:relative; overflow:hidden; }
     .map-svg-wrap svg { width:100%; height:auto; display:block; }
@@ -388,4 +389,3 @@
     .qr-tip { text-align:center; margin-top:24px; font-size:.8rem; color:var(--text-light); }
     @media(max-width:700px){ .qr-grid { grid-template-columns:1fr 1fr; } }
     @media(max-width:480px){ .qr-grid { grid-template-columns:1fr; } }
-
