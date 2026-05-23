@@ -786,6 +786,34 @@ svg.leaflet-image-layer.leaflet-interactive path {
     /* ── PRODUCTS ── */
     .products { padding: 96px 5%; background: var(--cream); }
     .products-inner { max-width: 1280px; margin: 0 auto; }
+
+    /* ── CATEGORY TABS ── */
+    .cat-tabs-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+    .cat-tabs { display: inline-flex; background: var(--white); border-radius: 60px; padding: 5px; gap: 4px; box-shadow: 0 2px 12px rgba(26,61,43,0.10); border: 1.5px solid rgba(26,61,43,0.09); }
+    .cat-tab { display: flex; align-items: center; gap: 8px; padding: 11px 28px; border-radius: 50px; border: none; cursor: pointer; font-family: inherit; font-size: .93rem; font-weight: 600; color: var(--text-light); background: transparent; transition: all .22s; white-space: nowrap; }
+    .cat-tab:hover { background: var(--sage); color: var(--forest); }
+    .cat-tab.active { background: var(--forest); color: #fff; box-shadow: 0 4px 12px rgba(26,61,43,0.22); }
+    .cat-tab-icon { font-size: 1.1rem; }
+    .cat-tab-label { letter-spacing: .01em; }
+
+    /* ── SUB-CATEGORY PILLS ── */
+    .subcat-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
+    .subcat-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .subcat-pill { padding: 7px 18px; border-radius: 30px; border: 1.5px solid var(--sage-mid); background: transparent; cursor: pointer; font-family: inherit; font-size: .82rem; font-weight: 600; color: var(--forest); transition: all .18s; letter-spacing: .02em; }
+    .subcat-pill:hover { background: var(--sage); border-color: var(--sage); }
+    .subcat-pill.active { background: var(--forest); color: #fff; border-color: var(--forest); }
+
+    /* Card hide/show for filtering */
+    .product-card.hidden { display: none; }
+
+    @media(max-width: 700px) {
+      .cat-tab { padding: 9px 16px; font-size: .82rem; gap: 6px; }
+      .cat-tab-icon { font-size: .95rem; }
+    }
+    @media(max-width: 480px) {
+      .cat-tabs { border-radius: 16px; flex-direction: column; width: 100%; }
+      .cat-tab { border-radius: 10px; justify-content: center; }
+    }
     .product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
     .product-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s; border: 1px solid rgba(26,61,43,0.06); cursor:pointer; }
     .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
@@ -1299,12 +1327,58 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <div class="products-inner">
     <div class="section-header center reveal">
       <span class="section-tag">Our Products</span>
-      <h2 class="section-title">Handcrafted Coconut Shell Collection</h2>
+      <h2 class="section-title">Handcrafted Coconut Collections</h2>
       <div class="divider center"></div>
       <p class="section-sub">100% Natural · Polished Finish · Export Ready — Each piece is made from sustainably sourced coconut shells and finished to international standards.</p>
     </div>
-    <div class="product-grid stagger">
-      <div class="product-card">
+
+    <!-- CATEGORY TABS -->
+    <div class="cat-tabs-wrap reveal">
+      <div class="cat-tabs">
+        <button class="cat-tab active" onclick="switchCategory('shell')" data-cat="shell">
+          <span class="cat-tab-icon">🥥</span>
+          <span class="cat-tab-label">Coconut Shell</span>
+        </button>
+        <button class="cat-tab" onclick="switchCategory('coir')" data-cat="coir">
+          <span class="cat-tab-icon">🌿</span>
+          <span class="cat-tab-label">Coconut Coir</span>
+        </button>
+        <button class="cat-tab" onclick="switchCategory('oil')" data-cat="oil">
+          <span class="cat-tab-icon">🫙</span>
+          <span class="cat-tab-label">Coconut Oil</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SUB-CATEGORY PILLS -->
+    <div class="subcat-wrap reveal" id="subcat-shell">
+      <div class="subcat-pills">
+        <button class="subcat-pill active" onclick="filterSub('shell','all')">All</button>
+        <button class="subcat-pill" onclick="filterSub('shell','bowls')">Bowls</button>
+        <button class="subcat-pill" onclick="filterSub('shell','cups')">Cups &amp; Glasses</button>
+        <button class="subcat-pill" onclick="filterSub('shell','candles')">Candles</button>
+        <button class="subcat-pill" onclick="filterSub('shell','utensils')">Utensils</button>
+        <button class="subcat-pill" onclick="filterSub('shell','planters')">Planters</button>
+        <button class="subcat-pill" onclick="filterSub('shell','decor')">Home Decor</button>
+      </div>
+    </div>
+    <div class="subcat-wrap reveal" id="subcat-coir" style="display:none;">
+      <div class="subcat-pills">
+        <button class="subcat-pill active" onclick="filterSub('coir','all')">All</button>
+        <button class="subcat-pill" onclick="filterSub('coir','scrubber')">Coir Scrubber</button>
+      </div>
+    </div>
+    <div class="subcat-wrap reveal" id="subcat-oil" style="display:none;">
+      <div class="subcat-pills">
+        <button class="subcat-pill active" onclick="filterSub('oil','all')">All</button>
+        <button class="subcat-pill" onclick="filterSub('oil','cold-pressed')">Wooden Cold Pressed Oil</button>
+        <button class="subcat-pill" onclick="filterSub('oil','virgin')">Virgin Oil</button>
+      </div>
+    </div>
+
+    <!-- ══ COCONUT SHELL PRODUCTS ══ -->
+    <div class="product-grid stagger" id="grid-shell">
+      <div class="product-card" data-subcat="bowls">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/478882389/VC/ET/JD/107095812/2002-250x250.jpg" alt="200ml Glossy Coconut Shell Bowl" loading="lazy" />
           <span class="prod-badge-eco">Bestseller</span>
@@ -1313,12 +1387,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>200ml Glossy Shell Bowl</h3>
           <p>Food-safe, polished finish. Ideal for salads, ice cream, hotels &amp; gifting.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(0)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/200ml-glossy-coconut-shell-bowl-2855585309230.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(0)" data-subcat="bowls" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2A200ml%20Glossy%20Shell%20Bowl%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="candles">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479004984/YF/OD/GN/107095812/300ml-wavy-coconut-shell-bowl-250x250.jpg" alt="Round Coconut Shell Spices Candle" loading="lazy" />
           <span class="prod-badge-eco">Handmade</span>
@@ -1327,12 +1401,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>Shell Spices Soy Candle</h3>
           <p>100g soy wax, cotton wick, spiced fragrance. Perfect for gifting &amp; home décor.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(1)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/round-coconut-shell-spices-candle-2855523262373.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(1)" data-subcat="candles" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2AShell%20Spices%20Soy%20Candle%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="cups">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479100545/AC/RL/QC/107095812/300ml-coconut-shell-coffee-cup-250x250.jpg" alt="150ml Coconut Shell Coffee Cup" loading="lazy" />
           <span class="prod-badge-eco">Café Ready</span>
@@ -1341,12 +1415,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>150ml Coffee Cup</h3>
           <p>Polished round base shell cup. Unique eco alternative for cafés &amp; restaurants.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(2)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/150ml-coconut-shell-coffee-cup-2855550057391.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(2)" data-subcat="cups" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2A150ml%20Coconut%20Shell%20Coffee%20Cup%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="candles">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479287362/LI/TP/GH/107095812/ci2-250x250.jpg" alt="Coconut Shell T-Light Candle Holder" loading="lazy" />
           <span class="prod-badge-eco">Décor</span>
@@ -1355,12 +1429,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>T-Light Candle Holder</h3>
           <p>500ml decorative holder for kitchen, dining table or garden. Zero plastic.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(3)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/coconut-shell-t-light-decorative-candle-holder-2855594284373.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(3)" data-subcat="candles" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2AT-Light%20Candle%20Holder%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="planters">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479148135/WR/ZL/RB/107095812/5-inch-coconut-shell-hanging-flower-planter-250x250.jpg" alt="Coconut Shell Hanging Planter" loading="lazy" />
           <span class="prod-badge-eco">Planter</span>
@@ -1369,12 +1443,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>Hanging Shell Planter Pot</h3>
           <p>5-inch polished hanging pot — perfect for indoor plants &amp; balcony décor.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(4)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/coconut-shell-hanging-pot-2855591011655.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(4)" data-subcat="planters" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2AHanging%20Shell%20Planter%20Pot%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="decor">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg" alt="Coconut Shell Incense Stick Holder" loading="lazy" />
           <span class="prod-badge-eco">Spiritual</span>
@@ -1383,12 +1457,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>Incense Stick Holder</h3>
           <p>2.5-inch round shell stand. For pooja rooms, yoga studios &amp; aromatherapy.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(5)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/coconut-shell-incense-stick-holders-2855594463633.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(5)" data-subcat="decor" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2AIncense%20Stick%20Holder%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-subcat="decor">
         <div class="product-img-wrap">
           <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg" alt="Cold Pressed Coconut Oil" loading="lazy" />
           <span class="prod-badge-eco">Farm Fresh</span>
@@ -1398,7 +1472,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <p>Pure cold-pressed coconut cooking oil. 15L containers, Made in India.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <button onclick="openProductDetail(6)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2AExpeller%20Pressed%20Coconut%20Oil%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
@@ -1411,14 +1485,63 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h3>Coconut Shell Purse</h3>
           <p>200ml natural polished shell purse. Unique corporate gift &amp; handicraft item.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button onclick="openProductDetail(7)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
-            <a href="https://m.indiamart.com/proddetail/coconut-shell-purse-2856630778212.html" target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">IndiaMART ↗</a>
+            <button onclick="openProductDetail(7)" data-subcat="decor" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%27m%20interested%20in%20the%20%2ACoconut%20Shell%20Purse%2A.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
           </div>
         </div>
       </div>
-    </div>
+    </div><!-- end #grid-shell -->
+
+    <!-- ══ COCONUT COIR PRODUCTS ══ -->
+    <div class="product-grid stagger" id="grid-coir" style="display:none;">
+      <div class="product-card" data-subcat="scrubber">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg" alt="Coconut Coir Scrubber" loading="lazy" />
+          <span class="prod-badge-eco">Natural</span>
+        </div>
+        <div class="product-info">
+          <h3>Coconut Coir Scrubber</h3>
+          <p>100% natural coir fibre scrubber. Tough on stains, gentle on surfaces. Biodegradable &amp; eco-friendly.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20I%27m%20interested%20in%20the%20*Coconut%20Coir%20Scrubber*.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--forest);color:#fff;flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- end #grid-coir -->
+
+    <!-- ══ COCONUT OIL PRODUCTS ══ -->
+    <div class="product-grid stagger" id="grid-oil" style="display:none;">
+      <div class="product-card" data-subcat="cold-pressed">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg" alt="Cold Pressed Coconut Oil" loading="lazy" />
+          <span class="prod-badge-eco">Farm Fresh</span>
+        </div>
+        <div class="product-info">
+          <h3>Expeller Pressed Coconut Oil</h3>
+          <p>Pure cold-pressed coconut cooking oil. 15L containers, Made in India. No additives or preservatives.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button onclick="openProductDetail(6)" class="product-link" style="border:none;cursor:pointer;background:var(--forest);color:#fff;flex:1;">View Details</button>
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20I%27m%20interested%20in%20the%20*Expeller%20Pressed%20Coconut%20Oil*.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--sage);color:var(--forest);flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-subcat="virgin">
+        <div class="product-img-wrap">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg" alt="Virgin Coconut Oil" loading="lazy" />
+          <span class="prod-badge-eco">Cold Pressed</span>
+        </div>
+        <div class="product-info">
+          <h3>Virgin Coconut Oil</h3>
+          <p>Premium virgin coconut oil extracted from fresh coconut milk. Ideal for food, cosmetics and therapeutic use.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20I%27m%20interested%20in%20*Virgin%20Coconut%20Oil*.%20Please%20share%20pricing%2C%20MOQ%20and%20availability." target="_blank" class="product-link" style="background:var(--forest);color:#fff;flex:1;text-align:center;">Enquire on WhatsApp 💬</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- end #grid-oil -->
+
     <div style="text-align:center;margin-top:44px;" class="reveal">
-      <a href="https://www.indiamart.com/ocv-enterprises/products.html" target="_blank" class="btn-secondary">View All 100+ Products on IndiaMART <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises%21%20I%20would%20like%20to%20know%20more%20about%20your%20full%20product%20range.%20Please%20share%20your%20catalogue%20and%20pricing." target="_blank" class="btn-secondary">Get Full Catalogue on WhatsApp 💬</a>
     </div>
   </div>
 </section>
@@ -1440,7 +1563,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
     <div class="about-content rr">
       <span class="section-tag">About Us</span>
-      <h2 class="section-title">A Family Farm Business<br/>Rooted in Coconuts</h2>
+      <h2 class="section-title">A Family Rooted Business in Coconuts</h2>
       <div class="divider"></div>
       <p>OCV Enterprises is a family-owned business with a deep connection to agriculture. Our story began on a farm, and that heritage fuels our passion for creating high-quality, value-added products from a sustainable source — the coconut.</p>
       <p>We are a <strong>vertically integrated coconut company</strong> — managing the entire process from sourcing coconut shells directly from farms to crafting beautiful, functional creations. Our skilled artisans and advanced machinery allow us to produce a diverse range of bowls, candles, cups, planters, oil, and more.</p>
@@ -1589,7 +1712,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="carousel-dots" id="review-dots"></div>
     </div>
     <div style="text-align:center;margin-top:32px;" class="reveal">
-      <a href="https://m.indiamart.com/ocv-enterprises/testimonial.html" target="_blank" class="btn-secondary">Read All 29 Reviews on IndiaMART</a>
+      <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20I%27d%20like%20to%20know%20more%20about%20your%20customer%20reviews%20and%20testimonials." target="_blank" class="btn-secondary">Contact Us for References</a>
     </div>
   </div>
 </section>
@@ -1819,9 +1942,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <div class="c-icon">💬</div>
           <div><div class="c-label">WhatsApp</div><div class="c-val">Chat with us on WhatsApp</div></div>
         </a>
-        <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="contact-item">
-          <div class="c-icon">🛒</div>
-          <div><div class="c-label">IndiaMART Store</div><div class="c-val">indiamart.com/ocv-enterprises</div></div>
+        <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20Please%20share%20your%20full%20product%20catalogue%20and%20pricing." target="_blank" class="contact-item">
+          <div class="c-icon">📦</div>
+          <div><div class="c-label">Product Catalogue</div><div class="c-val">Get our full catalogue on WhatsApp</div></div>
         </a>
         <a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank" class="contact-item">
           <div class="c-icon">📍</div>
@@ -2011,10 +2134,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <a href="https://wa.me/918047522509" target="_blank">Open WhatsApp ↗</a>
       </div>
       <div class="qr-card">
-        <img src="https://quickchart.io/qr?size=140&text=https%3A%2F%2Fwww.indiamart.com%2Focv-enterprises%2F" alt="IndiaMART QR Code" loading="lazy" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.indiamart.com/ocv-enterprises/'"/>
-        <h3>🛒 View Full Catalogue</h3>
-        <p>Scan to open our full IndiaMART store with all products, prices and enquiry options.</p>
-        <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank">Open IndiaMART ↗</a>
+        <img src="https://quickchart.io/qr?size=140&text=https%3A%2F%2Fwa.me%2F918047522509%3Ftext%3DHi%2520OCV%2520Enterprises!%2520Please%2520share%2520your%2520full%2520product%2520catalogue%2520and%2520pricing." alt="WhatsApp Catalogue QR Code" loading="lazy" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/918047522509'"/>
+        <h3>📦 Get Full Catalogue</h3>
+        <p>Scan to WhatsApp us and receive our full product catalogue with prices and export options.</p>
+        <a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20Please%20share%20your%20full%20product%20catalogue%20and%20pricing." target="_blank">Open WhatsApp ↗</a>
       </div>
       <div class="qr-card">
         <img src="https://quickchart.io/qr?size=140&text=https%3A%2F%2Fwww.instagram.com%2Forganico._" alt="Instagram QR Code" loading="lazy" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.instagram.com/organico._'"/>
@@ -2044,8 +2167,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <a href="https://www.youtube.com/@OCVEnterprises" target="_blank" class="f-social" aria-label="YouTube">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.52v-7l6.5 3.5-6.5 3.5z"/></svg>
           </a>
-          <a href="https://www.indiamart.com/ocv-enterprises/" target="_blank" class="f-social" aria-label="IndiaMART">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <a href="https://wa.me/918047522509" target="_blank" class="f-social" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
           <a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank" class="f-social" aria-label="Google Maps">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2080,7 +2203,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <ul>
           <li><a href="https://www.instagram.com/organico._" target="_blank">Instagram @organico._</a></li>
           <li><a href="https://www.youtube.com/@OCVEnterprises" target="_blank">YouTube @OCVEnterprises</a></li>
-          <li><a href="https://www.indiamart.com/ocv-enterprises/" target="_blank">IndiaMART Store</a></li>
+          <li><a href="https://wa.me/918047522509?text=Hi%20OCV%20Enterprises!%20Please%20share%20your%20product%20catalogue." target="_blank">WhatsApp Catalogue</a></li>
           <li><a href="https://maps.app.goo.gl/rHTFeDxpVg39WeQJ8" target="_blank">Google Maps Location</a></li>
           <li><a href="tel:+918047522509">+91 80475 22509</a></li>
           <li><a href="https://wa.me/918047522509" target="_blank">WhatsApp Us</a></li>
@@ -2144,7 +2267,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       'hero-title': 'Sustainable & Eco friendly Products with global standards',
       'hero-sub': 'Premium handcrafted coconut shell crafts and coir products for home and decor — export quality from Perundurai, Tamil Nadu, India. Trusted by wholesalers, hotels, cafés, gift brands & importers worldwide.',
       'nav-home':'Home','nav-products':'Products','nav-about':'About','nav-export':'Export','nav-contact':'Contact',
-      'about-title':'A Family Farm Business<br/>Rooted in Coconuts',
+      'about-title':'A Family Rooted Business in Coconuts',
       'about-p1':'OCV Enterprises is a family-owned business with a deep connection to agriculture. Our story began on a farm, and that heritage fuels our passion for creating high-quality, value-added products from a sustainable source — the coconut.',
       'hero-cta1':'Request a Quote','hero-cta2':'Browse Products','hero-cta3':'WhatsApp Us',
       'section-about-tag':'About Us','section-product-tag':'Our Products','section-why-tag':'Why Choose Us',
@@ -2232,6 +2355,42 @@ svg.leaflet-image-layer.leaflet-interactive path {
     updateCarousel();
   }, 4000);
 
+  // ── CATEGORY TABS & SUB-FILTERS ──
+  let activeCat = 'shell';
+  let activeSub = { shell: 'all', coir: 'all', oil: 'all' };
+
+  function switchCategory(cat) {
+    activeCat = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+    ['shell','coir','oil'].forEach(c => {
+      const g = document.getElementById('grid-' + c);
+      const s = document.getElementById('subcat-' + c);
+      if (g) g.style.display = c === cat ? '' : 'none';
+      if (s) s.style.display = c === cat ? '' : 'none';
+    });
+    applySubFilter(cat, activeSub[cat]);
+  }
+
+  function filterSub(cat, sub) {
+    activeSub[cat] = sub;
+    const wrap = document.getElementById('subcat-' + cat);
+    if (wrap) wrap.querySelectorAll('.subcat-pill').forEach(p => {
+      const onclick = p.getAttribute('onclick') || '';
+      p.classList.toggle('active', onclick.includes("'" + sub + "'"));
+    });
+    applySubFilter(cat, sub);
+  }
+
+  function applySubFilter(cat, sub) {
+    const grid = document.getElementById('grid-' + cat);
+    if (!grid) return;
+    grid.querySelectorAll('.product-card').forEach(card => {
+      const subEl = card.querySelector('[data-subcat]');
+      const cardSub = subEl ? subEl.dataset.subcat : card.dataset.subcat;
+      card.classList.toggle('hidden', sub !== 'all' && cardSub !== sub);
+    });
+  }
+
   // ── PRODUCT COMPARISON ──
   const prodData = [
     {
@@ -2241,7 +2400,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'200 ml', diameter:'12 cm', height:'5 cm', weight:'~80 g',
       material:'Natural Coconut Shell', finish:'High-Gloss Lacquer Polish', foodSafe:'Yes',
       use:'Hotels, Gifting, Ice Cream, Salads', eco:'Yes', export:'Yes', custom:'Yes', moq:'50 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/200ml-glossy-coconut-shell-bowl-2855585309230.html',
       related:[1,2,7]
     },
     {
@@ -2252,7 +2410,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       material:'Soy Wax + Natural Coconut Shell', finish:'Natural Rustic',
       foodSafe:'No', burnTime:'~25 hrs', wickType:'100% Cotton',
       use:'Home Décor, Gifting, Spa, Aromatherapy', eco:'Yes', export:'Yes', custom:'Yes', moq:'20 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/round-coconut-shell-spices-candle-2855523262373.html',
       related:[3,0,7]
     },
     {
@@ -2262,7 +2419,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'150 ml', diameter:'8 cm', height:'7 cm', weight:'~60 g',
       material:'Natural Coconut Shell', finish:'Polished Round Base', foodSafe:'Yes',
       use:'Cafés, Restaurants, Events', eco:'Yes', export:'Yes', custom:'Yes', moq:'30 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/150ml-coconut-shell-coffee-cup-2855550057391.html',
       related:[0,4,5]
     },
     {
@@ -2272,7 +2428,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'500 ml shell cavity', diameter:'15 cm', height:'8 cm', weight:'~200 g',
       material:'Natural Coconut Shell', finish:'Natural Outer / Polished Rim', foodSafe:'No',
       use:'Kitchen, Dining Table, Garden Décor, Hotels', eco:'Yes', export:'Yes', custom:'No', moq:'20 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-t-light-decorative-candle-holder-2855594284373.html',
       related:[1,5,7]
     },
     {
@@ -2282,7 +2437,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'250 ml / 5 inch', diameter:'13 cm', height:'10 cm', weight:'~150 g',
       material:'Natural Coconut Shell + Coir Rope', finish:'Hand-Polished Exterior', foodSafe:'No',
       use:'Indoor Plants, Balcony, Home Décor, Gift', eco:'Yes', export:'Yes', custom:'Yes', moq:'25 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-hanging-pot-2855591011655.html',
       related:[2,5,6]
     },
     {
@@ -2292,7 +2446,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'150 ml cavity', diameter:'6.5 cm', height:'3 cm', weight:'~30 g',
       material:'Natural Coconut Shell', finish:'Round Polished', foodSafe:'No',
       use:'Pooja Room, Yoga Studio, Aromatherapy, Meditation', eco:'Yes', export:'Yes', custom:'No', moq:'50 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-incense-stick-holders-2855594463633.html',
       related:[3,4,1]
     },
     {
@@ -2302,7 +2455,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       capacity:'15 L per container', diameter:'N/A', height:'N/A', weight:'~14 kg per container',
       material:'100% Pure Coconut', finish:'N/A', foodSafe:'Yes (Edible)',
       use:'Cooking, Edible, Health, Food Industry', eco:'Yes', export:'Yes', custom:'No', moq:'15 L',
-      indiamart:'https://www.indiamart.com/ocv-enterprises/',
       related:[0,1,4]
     },
     {
@@ -2313,7 +2465,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
       width:'12 cm', depth:'4 cm',
       material:'Natural Coconut Shell + Metal Clasp', finish:'Natural Polished', foodSafe:'No',
       use:'Corporate Gift, Fashion Accessory, Export', eco:'Yes', export:'Yes', custom:'Yes', moq:'10 pcs',
-      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-purse-2856630778212.html',
       related:[0,1,3]
     },
   ];
@@ -2447,7 +2598,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
     flagsEl.innerHTML = flags.map(([txt, cls]) => `<div class="pd-flag ${cls}">${txt}</div>`).join('');
     const waMsg = encodeURIComponent(`Hi OCV Enterprises! I am interested in "${p.name}" (MOQ: ${p.moq}). Please share details and a quote.`);
     document.getElementById('pd-whatsapp').href = `https://wa.me/918047522509?text=${waMsg}`;
-    document.getElementById('pd-indiamart').href = p.indiamart;
+    const bulkMsg = encodeURIComponent(`Hi OCV Enterprises! I'd like to request a *bulk quote* for "${p.name}" (MOQ: ${p.moq}). Please share your best B2B pricing and terms.`);
+    document.getElementById('pd-bulk-wa').href = `https://wa.me/918047522509?text=${bulkMsg}`;
     const relGrid = document.getElementById('pd-related-grid');
     relGrid.innerHTML = (p.related || []).map(rid => {
       const r = prodData[rid];
@@ -2720,7 +2872,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="pd-flags" id="pd-flags"></div>
         <div class="pd-cta-row">
           <a id="pd-whatsapp" href="#" target="_blank" class="pd-cta-primary">💬 Enquire on WhatsApp</a>
-          <a id="pd-indiamart" href="#" target="_blank" class="pd-cta-secondary">🛒 View on IndiaMART</a>
+          <a id="pd-bulk-wa" href="#" target="_blank" class="pd-cta-secondary">📦 Request Bulk Quote</a>
         </div>
       </div>
     </div>
