@@ -286,6 +286,7 @@
     .domestic-map-sec { padding:96px 5%; background:var(--beige); }
     .export-map-inner { max-width:1280px; margin:0 auto; }
     .map-svg-wrap { background:var(--sage); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-md); margin-top:40px; position:relative; overflow:hidden; }
+    .leaflet-map-wrap { margin-top:40px; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); border:1.5px solid var(--sage-mid); }
     .map-svg-wrap svg { width:100%; height:auto; display:block; }
     .country-dot { fill:var(--forest); r:5; }
     .export-country-chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; justify-content:center; }
@@ -389,3 +390,43 @@
     .qr-tip { text-align:center; margin-top:24px; font-size:.8rem; color:var(--text-light); }
     @media(max-width:700px){ .qr-grid { grid-template-columns:1fr 1fr; } }
     @media(max-width:480px){ .qr-grid { grid-template-columns:1fr; } }
+    /* ── MAP LAYOUT (left panel + map) ── */
+    .map-layout { display:grid; grid-template-columns:260px 1fr; gap:24px; margin-top:40px; align-items:start; }
+    .map-left-panel { background:var(--white); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); border:1.5px solid var(--sage-mid); padding:24px 20px; position:sticky; top:80px; }
+    .map-panel-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--forest); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--sage); }
+    .map-dest-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:4px; max-height:360px; overflow-y:auto; scrollbar-width:thin; }
+    .map-dest-list::-webkit-scrollbar { width:4px; }
+    .map-dest-list::-webkit-scrollbar-track { background:var(--sage); border-radius:2px; }
+    .map-dest-list::-webkit-scrollbar-thumb { background:var(--forest); border-radius:2px; }
+    .map-dest-item { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; cursor:pointer; transition:background .2s; }
+    .map-dest-item:hover { background:var(--sage); }
+    .map-dest-item.active { background:var(--sage-mid); }
+    .map-dest-item.home-item { background:rgba(26,61,43,.06); }
+    .map-dest-item strong { display:block; font-size:.82rem; font-weight:700; color:var(--forest); }
+    .map-dest-item span { font-size:.72rem; color:var(--text-light); }
+    .dest-dot { width:10px; height:10px; border-radius:50%; background:var(--forest); flex-shrink:0; }
+    .home-dot { width:14px; height:14px; background:var(--forest); border:2.5px solid var(--accent); }
+    .map-panel-note { font-size:.75rem; color:var(--text-light); text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid var(--sage); }
+    .leaflet-map-wrap { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); border:1.5px solid var(--sage-mid); }
+    @media(max-width:900px) {
+      .map-layout { grid-template-columns:1fr; }
+      .map-left-panel { position:static; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+      .map-panel-title { grid-column:1/-1; margin-bottom:0; }
+      .map-dest-list { max-height:200px; grid-column:1/-1; }
+      .map-panel-note { grid-column:1; }
+    }
+    @media(max-width:600px) {
+      .map-left-panel { display:block; }
+      .map-dest-list { max-height:160px; }
+    }
+
+    /* ── Leaflet background while tiles load ── */
+    #world-map, #india-map { background:#f0ede8; }
+    .leaflet-container { background:#f0ede8 !important; }
+
+    /* Map layout: always fully visible so Leaflet can read dimensions correctly */
+    .map-layout { opacity:1 !important; transform:none !important; }
+
+    /* Force map divs to always have height — never let parent opacity/transform hide them from Leaflet */
+    #world-map { height: 480px !important; width: 100% !important; display: block !important; }
+    #india-map { height: 520px !important; width: 100% !important; display: block !important; }

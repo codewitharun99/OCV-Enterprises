@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet CSS — local copy, no CDN needed -->
+  <link rel="stylesheet" href="leaflet.css"/>
 </head>
 <body>
 
@@ -414,6 +416,7 @@
 
 
 <!-- EXPORT MAP -->
+<!-- EXPORT MAP — Leaflet.js -->
 <section class="export-map-sec" id="export-map">
   <div class="export-map-inner">
     <div class="section-header center reveal">
@@ -422,111 +425,63 @@
       <div class="divider center"></div>
       <p class="section-sub">OCV Enterprises ships to buyers across 4 continents — hotels, retailers, wholesalers &amp; importers from India to Europe, Middle East &amp; beyond.</p>
     </div>
-    <div class="map-svg-wrap reveal">
-      <!-- Simplified world map SVG with export country markers -->
-      <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" style="max-height:420px;">
-        <defs>
-          <radialGradient id="mapbg" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c8d9bf" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#a8c89a" stop-opacity="0.1"/>
-          </radialGradient>
-        </defs>
-        <rect width="1000" height="500" fill="url(#mapbg)" rx="16"/>
-        <!-- Continents simplified shapes -->
-        <!-- North America -->
-        <path d="M 80 80 L 200 70 L 240 90 L 260 130 L 230 180 L 190 200 L 160 220 L 120 210 L 90 180 L 70 140 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- South America -->
-        <path d="M 160 230 L 210 225 L 230 260 L 220 310 L 190 360 L 165 370 L 148 330 L 145 280 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- Europe -->
-        <path d="M 440 60 L 510 55 L 530 75 L 520 100 L 490 115 L 460 110 L 435 90 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- Africa -->
-        <path d="M 450 120 L 520 115 L 540 160 L 530 230 L 500 280 L 470 290 L 440 250 L 430 190 L 435 140 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- Asia big -->
-        <path d="M 530 55 L 750 45 L 800 70 L 820 110 L 790 140 L 740 150 L 680 145 L 620 155 L 570 150 L 540 125 L 525 90 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- India subcontinent -->
-        <path d="M 640 155 L 670 150 L 685 175 L 680 210 L 660 225 L 640 215 L 630 190 L 633 165 Z" fill="#1A3D2B" opacity="0.3" stroke="#1A3D2B" stroke-width="1.5"/>
-        <!-- Australia -->
-        <path d="M 780 260 L 870 255 L 890 290 L 875 330 L 840 345 L 800 335 L 775 305 L 770 278 Z" fill="#1A3D2B" opacity="0.15" stroke="#1A3D2B" stroke-width="1" opacity="0.2"/>
-        <!-- Southeast Asia -->
-        <path d="M 730 155 L 790 150 L 810 175 L 800 200 L 770 205 L 740 185 Z" fill="#1A3D2B" opacity="0.12"/>
-
-        <!-- EXPORT COUNTRY MARKERS with pulse animation -->
-        <style>
-          .pulse-ring { animation: map-pulse 2s ease-out infinite; transform-origin: center; }
-          @keyframes map-pulse { 0%{opacity:.8;r:8px} 100%{opacity:0;r:22px} }
-          .pulse-ring2 { animation: map-pulse 2s ease-out infinite 0.6s; transform-origin: center; }
-          .pulse-ring3 { animation: map-pulse 2s ease-out infinite 1.2s; transform-origin: center; }
-        </style>
-
-        <!-- India (Home) -->
-        <circle cx="658" cy="185" r="20" fill="#1A3D2B" opacity="0.1" class="pulse-ring"/>
-        <circle cx="658" cy="185" r="8" fill="#1A3D2B"/>
-        <circle cx="658" cy="185" r="4" fill="#a8d5b5"/>
-        <text x="658" y="172" text-anchor="middle" font-size="11" font-weight="700" fill="#1A3D2B">🇮🇳 India</text>
-
-        <!-- UAE -->
-        <circle cx="578" cy="148" r="16" fill="#1A3D2B" opacity="0.1" class="pulse-ring2"/>
-        <circle cx="578" cy="148" r="7" fill="#1A3D2B"/>
-        <text x="578" y="136" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇦🇪 UAE</text>
-
-        <!-- UK -->
-        <circle cx="465" cy="75" r="16" fill="#1A3D2B" opacity="0.1" class="pulse-ring"/>
-        <circle cx="465" cy="75" r="7" fill="#1A3D2B"/>
-        <text x="465" y="63" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇬🇧 UK</text>
-
-        <!-- Germany -->
-        <circle cx="495" cy="80" r="16" fill="#1A3D2B" opacity="0.1" class="pulse-ring3"/>
-        <circle cx="495" cy="80" r="7" fill="#1A3D2B"/>
-        <text x="502" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇩🇪 Germany</text>
-
-        <!-- Italy -->
-        <circle cx="490" cy="95" r="14" fill="#1A3D2B" opacity="0.1" class="pulse-ring2"/>
-        <circle cx="490" cy="95" r="6" fill="#1A3D2B"/>
-
-        <!-- USA -->
-        <circle cx="150" cy="140" r="16" fill="#1A3D2B" opacity="0.1" class="pulse-ring2"/>
-        <circle cx="150" cy="140" r="7" fill="#1A3D2B"/>
-        <text x="150" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇺🇸 USA</text>
-
-        <!-- Singapore -->
-        <circle cx="760" cy="195" r="14" fill="#1A3D2B" opacity="0.1" class="pulse-ring"/>
-        <circle cx="760" cy="195" r="6" fill="#1A3D2B"/>
-        <text x="760" y="183" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇸🇬 Singapore</text>
-
-        <!-- Australia -->
-        <circle cx="835" cy="300" r="16" fill="#1A3D2B" opacity="0.1" class="pulse-ring3"/>
-        <circle cx="835" cy="300" r="7" fill="#1A3D2B"/>
-        <text x="835" y="288" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇦🇺 Australia</text>
-
-        <!-- Canada -->
-        <circle cx="140" cy="100" r="14" fill="#1A3D2B" opacity="0.1" class="pulse-ring"/>
-        <circle cx="140" cy="100" r="6" fill="#1A3D2B"/>
-        <text x="140" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🇨🇦 Canada</text>
-
-        <!-- Legend -->
-        <circle cx="30" cy="465" r="6" fill="#1A3D2B"/>
-        <text x="42" y="469" font-size="11" fill="#3e5244" font-weight="500">Active Export Destination</text>
-        <circle cx="30" cy="485" r="4" fill="#a8d5b5"/>
-        <text x="42" y="489" font-size="11" fill="#3e5244" font-weight="500">Manufacturing Base (Perundurai, TN)</text>
-      </svg>
-    </div>
-    <div class="export-country-chips reveal">
-      <span class="country-chip"><span class="flag">🇮🇳</span> India (PAN)</span>
-      <span class="country-chip"><span class="flag">🇺🇸</span> USA</span>
-      <span class="country-chip"><span class="flag">🇬🇧</span> United Kingdom</span>
-      <span class="country-chip"><span class="flag">🇩🇪</span> Germany</span>
-      <span class="country-chip"><span class="flag">🇮🇹</span> Italy</span>
-      <span class="country-chip"><span class="flag">🇦🇪</span> UAE</span>
-      <span class="country-chip"><span class="flag">🇸🇬</span> Singapore</span>
-      <span class="country-chip"><span class="flag">🇦🇺</span> Australia</span>
-      <span class="country-chip"><span class="flag">🇨🇦</span> Canada</span>
-      <span class="country-chip"><span class="flag">➕</span> &amp; more on request</span>
+    <div class="map-layout">
+      <!-- LEFT PANEL -->
+      <div class="map-left-panel">
+        <div class="map-panel-title">📦 Export Destinations</div>
+        <ul class="map-dest-list" id="world-dest-list">
+          <li class="map-dest-item home-item" data-pin="wpin-0">
+            <span class="dest-dot home-dot"></span>
+            <div><strong>📍 Perundurai, India</strong><span>Manufacturing Base</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-1">
+            <span class="dest-dot"></span>
+            <div><strong>🇺🇸 USA</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-2">
+            <span class="dest-dot"></span>
+            <div><strong>🇨🇦 Canada</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-3">
+            <span class="dest-dot"></span>
+            <div><strong>🇬🇧 United Kingdom</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-4">
+            <span class="dest-dot"></span>
+            <div><strong>🇩🇪 Germany</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-5">
+            <span class="dest-dot"></span>
+            <div><strong>🇮🇹 Italy</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-6">
+            <span class="dest-dot"></span>
+            <div><strong>🇦🇪 UAE</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-7">
+            <span class="dest-dot"></span>
+            <div><strong>🇸🇬 Singapore</strong><span>Export Destination</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="wpin-8">
+            <span class="dest-dot"></span>
+            <div><strong>🇦🇺 Australia</strong><span>Export Destination</span></div>
+          </li>
+        </ul>
+        <div class="map-panel-note">➕ More countries on request</div>
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;margin-top:20px;font-size:.85rem;">Request Export Quote</a>
+      </div>
+      <!-- MAP -->
+      <div class="leaflet-map-wrap">
+        <div id="world-map" style="width:100%;height:480px;border-radius:16px;"></div>
+      </div>
     </div>
   </div>
 </section>
 
 
+
 <!-- DOMESTIC DELIVERY MAP -->
+<!-- DOMESTIC MAP — Leaflet.js -->
 <section class="domestic-map-sec" id="domestic-map">
   <div class="export-map-inner">
     <div class="section-header center reveal">
@@ -535,149 +490,70 @@
       <div class="divider center"></div>
       <p class="section-sub">OCV Enterprises ships pan-India — from metros to Tier-2 cities. Retailers, hotels, gifting brands &amp; individual buyers across every state.</p>
     </div>
-    <div class="map-svg-wrap reveal">
-      <!-- India map SVG with domestic delivery city markers -->
-      <svg viewBox="0 0 700 780" xmlns="http://www.w3.org/2000/svg" style="max-height:520px;">
-        <defs>
-          <radialGradient id="indiamapbg" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c8d9bf" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#a8c89a" stop-opacity="0.1"/>
-          </radialGradient>
-        </defs>
-        <rect width="700" height="780" fill="url(#indiamapbg)" rx="16"/>
-
-        <!-- India outline (simplified but recognisable) -->
-        <!-- Main body -->
-        <path d="
-          M 290 60
-          L 330 52 L 370 58 L 405 70 L 430 85 L 445 105 L 460 115
-          L 475 110 L 490 118 L 498 132 L 492 148 L 505 162 L 510 178
-          L 498 192 L 502 210 L 488 222 L 490 238 L 478 252
-          L 472 270 L 460 285 L 455 302 L 462 318 L 455 335
-          L 445 352 L 438 372 L 428 390 L 415 408 L 400 424
-          L 388 440 L 378 458 L 368 476 L 358 494 L 348 510
-          L 340 526 L 335 542 L 332 558 L 335 572 L 342 584
-          L 348 595 L 350 608 L 345 620 L 338 630 L 330 638
-          L 322 630 L 315 620 L 310 608 L 312 595 L 318 582
-          L 322 568 L 320 552 L 314 538 L 305 522 L 295 506
-          L 283 488 L 272 470 L 260 452 L 250 432 L 240 412
-          L 232 392 L 225 372 L 220 352 L 218 332 L 222 312
-          L 228 294 L 222 275 L 215 258 L 210 240 L 208 222
-          L 200 205 L 195 188 L 200 172 L 210 158 L 215 142
-          L 222 128 L 230 112 L 245 98 L 262 80 L 278 66
-          Z"
-          fill="#1A3D2B" opacity="0.18" stroke="#1A3D2B" stroke-width="1.5"/>
-
-        <!-- Kashmir / J&K top -->
-        <path d="M 290 60 L 278 66 L 262 52 L 252 42 L 258 28 L 272 22 L 290 20 L 308 24 L 322 34 L 330 46 L 330 52 Z"
-          fill="#1A3D2B" opacity="0.14" stroke="#1A3D2B" stroke-width="1"/>
-        <!-- Northeast bump -->
-        <path d="M 490 118 L 510 110 L 530 112 L 548 122 L 555 138 L 545 152 L 528 158 L 510 162 L 505 162 L 498 148 L 492 132 Z"
-          fill="#1A3D2B" opacity="0.14" stroke="#1A3D2B" stroke-width="1"/>
-        <!-- Sri Lanka (small island) -->
-        <ellipse cx="368" cy="655" rx="14" ry="18" fill="#1A3D2B" opacity="0.1"/>
-
-        <!-- Perundurai (Home / Manufacturing) star marker -->
-        <circle cx="318" cy="530" r="22" fill="#1A3D2B" opacity="0.12" class="pulse-ring"/>
-        <circle cx="318" cy="530" r="10" fill="#1A3D2B"/>
-        <circle cx="318" cy="530" r="5" fill="#a8d5b5"/>
-        <text x="318" y="514" text-anchor="middle" font-size="11" font-weight="800" fill="#1A3D2B">📍 Perundurai</text>
-        <text x="318" y="500" text-anchor="middle" font-size="10" fill="#3e5244">(Manufacturing)</text>
-
-        <!-- Pulse animation style (reuse from export map) -->
-        <style>
-          .dom-pulse { animation: dom-map-pulse 2s ease-out infinite; transform-origin: center; }
-          .dom-pulse2 { animation: dom-map-pulse 2s ease-out infinite 0.5s; }
-          .dom-pulse3 { animation: dom-map-pulse 2s ease-out infinite 1s; }
-          @keyframes dom-map-pulse { 0%{opacity:.7;r:9px} 100%{opacity:0;r:22px} }
-        </style>
-
-        <!-- Chennai -->
-        <circle cx="368" cy="510" r="18" fill="#1A3D2B" opacity="0.12" class="dom-pulse"/>
-        <circle cx="368" cy="510" r="7" fill="#1A3D2B"/>
-        <text x="368" y="498" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Chennai</text>
-
-        <!-- Bangalore -->
-        <circle cx="308" cy="498" r="18" fill="#1A3D2B" opacity="0.12" class="dom-pulse2"/>
-        <circle cx="308" cy="498" r="7" fill="#1A3D2B"/>
-        <text x="308" y="486" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Bengaluru</text>
-
-        <!-- Mumbai -->
-        <circle cx="230" cy="392" r="18" fill="#1A3D2B" opacity="0.12" class="dom-pulse3"/>
-        <circle cx="230" cy="392" r="7" fill="#1A3D2B"/>
-        <text x="230" y="380" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Mumbai</text>
-
-        <!-- Delhi -->
-        <circle cx="310" cy="180" r="18" fill="#1A3D2B" opacity="0.12" class="dom-pulse"/>
-        <circle cx="310" cy="180" r="7" fill="#1A3D2B"/>
-        <text x="310" y="168" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Delhi</text>
-
-        <!-- Kolkata -->
-        <circle cx="438" cy="295" r="16" fill="#1A3D2B" opacity="0.12" class="dom-pulse2"/>
-        <circle cx="438" cy="295" r="7" fill="#1A3D2B"/>
-        <text x="438" y="283" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Kolkata</text>
-
-        <!-- Hyderabad -->
-        <circle cx="340" cy="418" r="16" fill="#1A3D2B" opacity="0.12" class="dom-pulse3"/>
-        <circle cx="340" cy="418" r="7" fill="#1A3D2B"/>
-        <text x="340" y="406" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">🏙 Hyderabad</text>
-
-        <!-- Pune -->
-        <circle cx="252" cy="408" r="14" fill="#1A3D2B" opacity="0.12" class="dom-pulse"/>
-        <circle cx="252" cy="408" r="6" fill="#1A3D2B"/>
-        <text x="252" y="396" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Pune</text>
-
-        <!-- Ahmedabad -->
-        <circle cx="228" cy="285" r="14" fill="#1A3D2B" opacity="0.12" class="dom-pulse2"/>
-        <circle cx="228" cy="285" r="6" fill="#1A3D2B"/>
-        <text x="228" y="273" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Ahmedabad</text>
-
-        <!-- Jaipur -->
-        <circle cx="278" cy="215" r="14" fill="#1A3D2B" opacity="0.12" class="dom-pulse3"/>
-        <circle cx="278" cy="215" r="6" fill="#1A3D2B"/>
-        <text x="278" y="203" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Jaipur</text>
-
-        <!-- Kochi -->
-        <circle cx="288" cy="558" r="14" fill="#1A3D2B" opacity="0.12" class="dom-pulse"/>
-        <circle cx="288" cy="558" r="6" fill="#1A3D2B"/>
-        <text x="288" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Kochi</text>
-
-        <!-- Bhopal -->
-        <circle cx="322" cy="298" r="13" fill="#1A3D2B" opacity="0.12" class="dom-pulse2"/>
-        <circle cx="322" cy="298" r="6" fill="#1A3D2B"/>
-        <text x="322" y="286" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Bhopal</text>
-
-        <!-- Guwahati -->
-        <circle cx="490" cy="195" r="13" fill="#1A3D2B" opacity="0.12" class="dom-pulse3"/>
-        <circle cx="490" cy="195" r="6" fill="#1A3D2B"/>
-        <text x="490" y="183" text-anchor="middle" font-size="10" font-weight="700" fill="#1A3D2B">Guwahati</text>
-
-        <!-- Legend -->
-        <circle cx="28" cy="730" r="7" fill="#1A3D2B"/>
-        <circle cx="28" cy="730" r="3" fill="#a8d5b5"/>
-        <text x="42" y="734" font-size="11" fill="#3e5244" font-weight="500">Manufacturing Base (Perundurai, TN)</text>
-        <circle cx="28" cy="752" r="6" fill="#1A3D2B"/>
-        <text x="42" y="756" font-size="11" fill="#3e5244" font-weight="500">Active Delivery Destination</text>
-      </svg>
-    </div>
-
-    <div class="export-country-chips reveal">
-      <span class="country-chip"><span class="flag">🏙</span> Delhi</span>
-      <span class="country-chip"><span class="flag">🏙</span> Mumbai</span>
-      <span class="country-chip"><span class="flag">🏙</span> Bengaluru</span>
-      <span class="country-chip"><span class="flag">🏙</span> Chennai</span>
-      <span class="country-chip"><span class="flag">🏙</span> Hyderabad</span>
-      <span class="country-chip"><span class="flag">🏙</span> Kolkata</span>
-      <span class="country-chip"><span class="flag">🏙</span> Pune</span>
-      <span class="country-chip"><span class="flag">🏙</span> Ahmedabad</span>
-      <span class="country-chip"><span class="flag">🏙</span> Jaipur</span>
-      <span class="country-chip"><span class="flag">🏙</span> Kochi</span>
-      <span class="country-chip"><span class="flag">🏙</span> Guwahati</span>
-      <span class="country-chip"><span class="flag">➕</span> &amp; all states on request</span>
+    <div class="map-layout">
+      <!-- LEFT PANEL -->
+      <div class="map-left-panel">
+        <div class="map-panel-title">🏙 Delivery Cities</div>
+        <ul class="map-dest-list" id="india-dest-list">
+          <li class="map-dest-item home-item" data-pin="ipin-0">
+            <span class="dest-dot home-dot"></span>
+            <div><strong>📍 Perundurai</strong><span>Manufacturing Base</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-1">
+            <span class="dest-dot"></span>
+            <div><strong>Delhi</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-2">
+            <span class="dest-dot"></span>
+            <div><strong>Mumbai</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-3">
+            <span class="dest-dot"></span>
+            <div><strong>Bengaluru</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-4">
+            <span class="dest-dot"></span>
+            <div><strong>Chennai</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-5">
+            <span class="dest-dot"></span>
+            <div><strong>Hyderabad</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-6">
+            <span class="dest-dot"></span>
+            <div><strong>Kolkata</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-7">
+            <span class="dest-dot"></span>
+            <div><strong>Pune</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-8">
+            <span class="dest-dot"></span>
+            <div><strong>Ahmedabad</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-9">
+            <span class="dest-dot"></span>
+            <div><strong>Jaipur</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-10">
+            <span class="dest-dot"></span>
+            <div><strong>Kochi</strong><span>Pan-India Delivery</span></div>
+          </li>
+          <li class="map-dest-item" data-pin="ipin-11">
+            <span class="dest-dot"></span>
+            <div><strong>Guwahati</strong><span>Pan-India Delivery</span></div>
+          </li>
+        </ul>
+        <div class="map-panel-note">➕ All states on request</div>
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;margin-top:20px;font-size:.85rem;">Order Now</a>
+      </div>
+      <!-- MAP -->
+      <div class="leaflet-map-wrap">
+        <div id="india-map" style="width:100%;height:520px;border-radius:16px;"></div>
+      </div>
     </div>
   </div>
 </section>
-
 
 <!-- ORDER TRACKER -->
 <section class="order-track-sec">
@@ -1051,5 +927,7 @@
 </a>
 
 <script src="script.js"></script>
+<script src="leaflet.js" defer></script>
+<script src="map.js" defer></script>
 </body>
 </html>
