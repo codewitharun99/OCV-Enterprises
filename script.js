@@ -117,14 +117,88 @@
 
   // ── PRODUCT COMPARISON ──
   const prodData = [
-    { name:'Coconut Shell Bowl', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/478882389/VC/ET/JD/107095812/2002-250x250.jpg', price:'₹31/pc', capacity:'200ml', material:'Coconut Shell', finish:'Glossy Polished', use:'Hotels, Gifting, Ice Cream, Salads', eco:'✓', export:'✓', custom:'✓', moq:'50 pcs' },
-    { name:'Soy Wax Candle', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479004984/YF/OD/GN/107095812/300ml-wavy-coconut-shell-bowl-250x250.jpg', price:'₹99/pc', capacity:'100g wax', material:'Soy Wax + Coconut Shell', finish:'Natural', use:'Home Décor, Gifting, Spa, Aromatherapy', eco:'✓', export:'✓', custom:'✓', moq:'20 pcs' },
-    { name:'Coffee Cup', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479100545/AC/RL/QC/107095812/300ml-coconut-shell-coffee-cup-250x250.jpg', price:'₹75/pc', capacity:'150ml', material:'Coconut Shell', finish:'Polished Round Base', use:'Cafés, Restaurants, Events', eco:'✓', export:'✓', custom:'✓', moq:'30 pcs' },
-    { name:'T-Light Holder', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479287362/LI/TP/GH/107095812/ci2-250x250.jpg', price:'₹159/pc', capacity:'500ml', material:'Coconut Shell', finish:'Natural', use:'Kitchen, Dining, Garden Décor', eco:'✓', export:'✓', custom:'✗', moq:'20 pcs' },
-    { name:'Hanging Planter', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479148135/WR/ZL/RB/107095812/5-inch-coconut-shell-hanging-flower-planter-250x250.jpg', price:'₹88/pc', capacity:'250ml', material:'Coconut Shell', finish:'Polished', use:'Indoor Plants, Balcony, Home Décor', eco:'✓', export:'✓', custom:'✓', moq:'25 pcs' },
-    { name:'Incense Holder', img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg', price:'₹69/pc', capacity:'150ml', material:'Coconut Shell', finish:'Round Polished', use:'Pooja Room, Yoga, Aromatherapy', eco:'✓', export:'✓', custom:'✗', moq:'50 pcs' },
-    { name:'Coconut Oil', img:'https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg', price:'₹270/L', capacity:'15L container', material:'Pure Coconut', finish:'N/A', use:'Cooking, Edible, Health', eco:'✓', export:'✓', custom:'✗', moq:'15 L' },
-    { name:'Shell Purse', img:'https://5.imimg.com/data5/SELLER/Default/2026/3/594346792/FW/RV/JR/107095812/whatsapp-image-2025-10-22-at-7-11-08-pm-1-250x250.jpeg', price:'₹159/pc', capacity:'200ml', material:'Coconut Shell', finish:'Natural Polished', use:'Corporate Gift, Fashion Accessory', eco:'✓', export:'✓', custom:'✓', moq:'10 pcs' },
+    {
+      id:0, name:'200ml Glossy Shell Bowl', badge:'Bestseller',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/478882389/VC/ET/JD/107095812/2002-250x250.jpg',
+      desc:'A beautifully polished, food-safe coconut shell bowl with a glossy lacquer finish. Ideal for serving ice cream, salads, dips and snacks. A favourite among hotels, cafés and eco-gifting brands worldwide.',
+      capacity:'200 ml', diameter:'12 cm', height:'5 cm', weight:'~80 g',
+      material:'Natural Coconut Shell', finish:'High-Gloss Lacquer Polish', foodSafe:'Yes',
+      use:'Hotels, Gifting, Ice Cream, Salads', eco:'Yes', export:'Yes', custom:'Yes', moq:'50 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/200ml-glossy-coconut-shell-bowl-2855585309230.html',
+      related:[1,2,7]
+    },
+    {
+      id:1, name:'Shell Spices Soy Candle', badge:'Handmade',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479004984/YF/OD/GN/107095812/300ml-wavy-coconut-shell-bowl-250x250.jpg',
+      desc:'Handcrafted soy wax candle poured into a natural coconut shell. Infused with warm spice fragrances and a 100% cotton wick for a clean, long-lasting burn. Perfect for gifting, home décor and spa settings.',
+      capacity:'100 g wax', diameter:'10 cm', height:'6 cm', weight:'~150 g',
+      material:'Soy Wax + Natural Coconut Shell', finish:'Natural Rustic',
+      foodSafe:'No', burnTime:'~25 hrs', wickType:'100% Cotton',
+      use:'Home Décor, Gifting, Spa, Aromatherapy', eco:'Yes', export:'Yes', custom:'Yes', moq:'20 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/round-coconut-shell-spices-candle-2855523262373.html',
+      related:[3,0,7]
+    },
+    {
+      id:2, name:'150ml Coffee Cup', badge:'Café Ready',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479100545/AC/RL/QC/107095812/300ml-coconut-shell-coffee-cup-250x250.jpg',
+      desc:'A polished coconut shell coffee cup with a smooth round base — the ultimate eco-alternative for cafés, restaurants and events. Food-safe lining, sturdy construction and a natural aesthetic that impresses every guest.',
+      capacity:'150 ml', diameter:'8 cm', height:'7 cm', weight:'~60 g',
+      material:'Natural Coconut Shell', finish:'Polished Round Base', foodSafe:'Yes',
+      use:'Cafés, Restaurants, Events', eco:'Yes', export:'Yes', custom:'Yes', moq:'30 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/150ml-coconut-shell-coffee-cup-2855550057391.html',
+      related:[0,4,5]
+    },
+    {
+      id:3, name:'T-Light Candle Holder', badge:'Décor',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479287362/LI/TP/GH/107095812/ci2-250x250.jpg',
+      desc:'A large, natural coconut shell repurposed as a striking decorative candle holder. Works beautifully as a table centrepiece, garden lantern or bathroom accent. Zero plastic — 100% natural and biodegradable.',
+      capacity:'500 ml shell cavity', diameter:'15 cm', height:'8 cm', weight:'~200 g',
+      material:'Natural Coconut Shell', finish:'Natural Outer / Polished Rim', foodSafe:'No',
+      use:'Kitchen, Dining Table, Garden Décor, Hotels', eco:'Yes', export:'Yes', custom:'No', moq:'20 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-t-light-decorative-candle-holder-2855594284373.html',
+      related:[1,5,7]
+    },
+    {
+      id:4, name:'Hanging Shell Planter Pot', badge:'Planter',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479148135/WR/ZL/RB/107095812/5-inch-coconut-shell-hanging-flower-planter-250x250.jpg',
+      desc:'A 5-inch polished coconut shell planter with a hanging rope. The natural drainage and breathable shell make it ideal for succulents, air plants and small herbs. A stunning addition to any balcony, living room or garden.',
+      capacity:'250 ml / 5 inch', diameter:'13 cm', height:'10 cm', weight:'~150 g',
+      material:'Natural Coconut Shell + Coir Rope', finish:'Hand-Polished Exterior', foodSafe:'No',
+      use:'Indoor Plants, Balcony, Home Décor, Gift', eco:'Yes', export:'Yes', custom:'Yes', moq:'25 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-hanging-pot-2855591011655.html',
+      related:[2,5,6]
+    },
+    {
+      id:5, name:'Incense Stick Holder', badge:'Spiritual',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/1/479296527/DR/TJ/LC/107095812/coconut-shell-incense-stick-stand-250x250.jpg',
+      desc:'A compact, round coconut shell stand crafted to hold incense sticks securely. Its natural form and earthy texture make it a beautiful addition to pooja rooms, yoga studios, meditation spaces and aromatherapy corners.',
+      capacity:'150 ml cavity', diameter:'6.5 cm', height:'3 cm', weight:'~30 g',
+      material:'Natural Coconut Shell', finish:'Round Polished', foodSafe:'No',
+      use:'Pooja Room, Yoga Studio, Aromatherapy, Meditation', eco:'Yes', export:'Yes', custom:'No', moq:'50 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-incense-stick-holders-2855594463633.html',
+      related:[3,4,1]
+    },
+    {
+      id:6, name:'Expeller Pressed Coconut Oil', badge:'Farm Fresh',
+      img:'https://5.imimg.com/data5/SELLER/Default/2025/5/510230567/EH/FE/MJ/107095812/cold-pressed-coconut-oil-250x250.jpeg',
+      desc:'Pure expeller-pressed coconut cooking oil made from fresh Indian coconuts. No additives, no preservatives — just pure, natural oil. Available in 15-litre bulk containers for wholesale, food industry and B2B buyers.',
+      capacity:'15 L per container', diameter:'N/A', height:'N/A', weight:'~14 kg per container',
+      material:'100% Pure Coconut', finish:'N/A', foodSafe:'Yes (Edible)',
+      use:'Cooking, Edible, Health, Food Industry', eco:'Yes', export:'Yes', custom:'No', moq:'15 L',
+      indiamart:'https://www.indiamart.com/ocv-enterprises/',
+      related:[0,1,4]
+    },
+    {
+      id:7, name:'Coconut Shell Purse', badge:'Gift',
+      img:'https://5.imimg.com/data5/SELLER/Default/2026/3/594346792/FW/RV/JR/107095812/whatsapp-image-2025-10-22-at-7-11-08-pm-1-250x250.jpeg',
+      desc:'A unique, handcrafted coconut shell purse — a perfect fusion of nature and fashion. Polished to a smooth natural finish and fitted with a secure clasp. An eye-catching corporate gift, fashion accessory and export product loved by international buyers.',
+      capacity:'200 ml internal cavity', diameter:'N/A', height:'10 cm', weight:'~100 g',
+      width:'12 cm', depth:'4 cm',
+      material:'Natural Coconut Shell + Metal Clasp', finish:'Natural Polished', foodSafe:'No',
+      use:'Corporate Gift, Fashion Accessory, Export', eco:'Yes', export:'Yes', custom:'Yes', moq:'10 pcs',
+      indiamart:'https://m.indiamart.com/proddetail/coconut-shell-purse-2856630778212.html',
+      related:[0,1,3]
+    },
   ];
   let selectedProds = [];
   function toggleCompare(id) {
@@ -148,14 +222,17 @@
     const prods = selectedProds.map(i => prodData[i]);
     const rows = [
       ['Product Image', p => `<img src="${p.img}" alt="${p.name}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;">`],
-      ['Price', p => `<strong>${p.price}</strong>`],
       ['Capacity', p => p.capacity],
+      ['Diameter', p => p.diameter],
+      ['Height', p => p.height],
+      ['Weight', p => p.weight],
       ['Material', p => p.material],
       ['Finish', p => p.finish],
+      ['Food Safe', p => p.foodSafe],
       ['Best For', p => p.use],
-      ['Eco-Friendly', p => `<span class="${p.eco==='✓'?'compare-yes':'compare-no'}">${p.eco}</span>`],
-      ['Export Ready', p => `<span class="${p.export==='✓'?'compare-yes':'compare-no'}">${p.export}</span>`],
-      ['Custom Options', p => `<span class="${p.custom==='✓'?'compare-yes':'compare-no'}">${p.custom}</span>`],
+      ['Eco-Friendly', p => `<span class="${p.eco==='Yes'?'compare-yes':'compare-no'}">${p.eco}</span>`],
+      ['Export Ready', p => `<span class="${p.export==='Yes'?'compare-yes':'compare-no'}">${p.export}</span>`],
+      ['Custom Options', p => `<span class="${p.custom==='Yes'?'compare-yes':'compare-no'}">${p.custom}</span>`],
       ['Min. Order Qty', p => p.moq],
     ];
     let html = '<table class="compare-table"><thead><tr><th>Feature</th>';
@@ -177,7 +254,7 @@
   function toggleBundle(el, id) {
     el.classList.toggle('selected');
     if(el.classList.contains('selected')) {
-      bundleSelected[id] = { name: el.dataset.name, price: parseInt(el.dataset.price) };
+      bundleSelected[id] = { name: el.dataset.name };
     } else {
       delete bundleSelected[id];
     }
@@ -190,31 +267,108 @@
     const ids = Object.keys(bundleSelected);
     if(ids.length === 0) {
       list.innerHTML = '<p class="bundle-empty-msg">Click products on the left<br/>to add them to your bundle</p>';
-      totalEl.textContent = '₹0';
+      totalEl.textContent = '0';
       return;
     }
-    let total = 0;
     list.innerHTML = '';
     ids.forEach(id => {
       const item = bundleSelected[id];
-      const lineTotal = item.price * qty;
-      total += lineTotal;
       const div = document.createElement('div');
       div.className = 'bundle-line';
-      div.innerHTML = `<span class="b-item-name">${item.name}</span><span>₹${item.price} × ${qty} = <strong style="color:#a8d5b5">₹${lineTotal.toLocaleString()}</strong></span>`;
+      div.innerHTML = `<span class="b-item-name">${item.name}</span><span style="color:rgba(255,255,255,.6);font-size:.8rem">Qty: ${qty} pcs</span>`;
       list.appendChild(div);
     });
-    totalEl.textContent = '₹' + (total > 0 ? total.toLocaleString() : 0);
+    totalEl.textContent = ids.length;
   }
   function requestBundleQuote() {
     const ids = Object.keys(bundleSelected);
     if(ids.length === 0) { alert('Please select at least one product for your bundle.'); return; }
     const qty = document.getElementById('bundle-qty').value;
-    const items = ids.map(id => bundleSelected[id].name + ' (₹' + bundleSelected[id].price + ')').join(', ');
-    const total = ids.reduce((s,id) => s + bundleSelected[id].price * parseInt(qty), 0);
-    const msg = encodeURIComponent(`Hi OCV Enterprises! I want to build a custom eco gift bundle:\n\nProducts: ${items}\nQuantity: ${qty} pieces each\nEstimated Total: ₹${total.toLocaleString()}\n\nPlease send me a final quote with bulk discount.`);
+    const items = ids.map(id => bundleSelected[id].name).join(', ');
+    const msg = encodeURIComponent(`Hi OCV Enterprises! I want to build a custom eco gift bundle:\n\nProducts: ${items}\nQuantity: ${qty} pieces each\n\nPlease send me a quote with bulk discount.`);
     window.open(`https://wa.me/918047522509?text=${msg}`, '_blank');
   }
+
+
+  // ── PRODUCT DETAIL PAGE ──
+  function openProductDetail(id) {
+    const p = prodData[id];
+    if(!p) return;
+    // Populate image & header
+    document.getElementById('pd-img').src = p.img;
+    document.getElementById('pd-img').alt = p.name;
+    document.getElementById('pd-breadcrumb-name').textContent = p.name;
+    document.getElementById('pd-title').textContent = p.name;
+    document.getElementById('pd-desc').textContent = p.desc;
+
+    // Badges
+    const badgeRow = document.getElementById('pd-badges');
+    badgeRow.innerHTML = `<span class="pd-badge pd-badge-green">${p.badge}</span><span class="pd-badge pd-badge-sage">🌿 Eco-Friendly</span>${p.export==='Yes'?'<span class="pd-badge pd-badge-sage">✈️ Export Ready</span>':''}`;
+
+    // Specs
+    const specDefs = [
+      ['Capacity / Volume', p.capacity],
+      ['Diameter', p.diameter],
+      ['Height', p.height],
+      p.width ? ['Width', p.width] : null,
+      p.depth ? ['Depth', p.depth] : null,
+      ['Weight', p.weight],
+      ['Material', p.material],
+      ['Finish / Surface', p.finish],
+      ['Food Safe', p.foodSafe],
+      p.burnTime ? ['Burn Time', p.burnTime] : null,
+      p.wickType ? ['Wick Type', p.wickType] : null,
+      ['Min. Order Qty', p.moq],
+      ['Best For', p.use],
+    ].filter(Boolean);
+    const specsEl = document.getElementById('pd-specs');
+    specsEl.innerHTML = specDefs.map(([label, val]) =>
+      `<div class="pd-spec"><div class="pd-spec-label">${label}</div><div class="pd-spec-val">${val}</div></div>`
+    ).join('');
+
+    // Flags
+    const flagsEl = document.getElementById('pd-flags');
+    const flags = [
+      ['✅ Eco-Certified', 'pd-flag-yes'],
+      [p.export==='Yes'?'✅ Export Ready':'❌ Not for Export', p.export==='Yes'?'pd-flag-yes':'pd-flag-no'],
+      [p.custom==='Yes'?'✅ Custom Branding Available':'ℹ️ No Custom Options', p.custom==='Yes'?'pd-flag-yes':''],
+      [p.foodSafe==='Yes'||p.foodSafe==='Yes (Edible)'?'✅ Food Safe':'ℹ️ Not Food Grade', p.foodSafe==='Yes'||p.foodSafe==='Yes (Edible)'?'pd-flag-yes':''],
+    ];
+    flagsEl.innerHTML = flags.map(([txt, cls]) => `<div class="pd-flag ${cls}">${txt}</div>`).join('');
+
+    // CTA links
+    const waMsg = encodeURIComponent(`Hi OCV Enterprises! I am interested in "${p.name}" (MOQ: ${p.moq}). Please share details and a quote.`);
+    document.getElementById('pd-whatsapp').href = `https://wa.me/918047522509?text=${waMsg}`;
+    document.getElementById('pd-indiamart').href = p.indiamart;
+
+    // Related products
+    const relGrid = document.getElementById('pd-related-grid');
+    relGrid.innerHTML = (p.related || []).map(rid => {
+      const r = prodData[rid];
+      return `<div class="pd-rel-card" onclick="openProductDetail(${rid})">
+        <div class="pd-rel-img"><img src="${r.img}" alt="${r.name}" loading="lazy"/></div>
+        <div class="pd-rel-info">
+          <div class="pd-rel-name">${r.name}</div>
+          <div class="pd-rel-use">${r.use}</div>
+          <button class="pd-rel-btn">View Details →</button>
+        </div>
+      </div>`;
+    }).join('');
+
+    // Show overlay
+    const overlay = document.getElementById('pd-overlay');
+    overlay.classList.add('open');
+    overlay.scrollTo(0,0);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductDetail() {
+    document.getElementById('pd-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeProductDetail(); });
 
   // ── NEWSLETTER ──
   function subscribeNewsletter() {
