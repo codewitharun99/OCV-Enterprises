@@ -959,7 +959,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     /* ── RESPONSIVE ── */
     @media(max-width:1100px){.product-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.footer-top{grid-template-columns:1fr 1fr}}
     @media(max-width:900px){.nav-links,.nav-right{display:none}.hamburger{display:flex}.hero-inner{grid-template-columns:1fr;gap:32px}.hero-img-wrap{order:-1}.hero-img-main{max-width:100%;aspect-ratio:16/9}.about-inner,.contact-inner{grid-template-columns:1fr}.about-img-stack{height:340px}.export-grid,.reviews-grid{grid-template-columns:1fr}}
-    @media(max-width:600px){.hero{padding:90px 5% 44px}.hero-ctas{flex-direction:column}.btn-primary,.btn-secondary,.btn-whatsapp{width:100%;justify-content:center}.product-grid{grid-template-columns:1fr 1fr;gap:12px}.why-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.about-stats{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.hero{padding:90px 5% 44px}.hero-ctas{flex-direction:column}.hero-ctas .btn-primary,.hero-ctas .btn-secondary,.hero-ctas .btn-whatsapp{width:100%;justify-content:center}.product-grid{grid-template-columns:1fr 1fr;gap:12px}.why-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.about-stats{grid-template-columns:1fr 1fr}}
 
 
     /* ── LANGUAGE TOGGLE ── */
@@ -1321,6 +1321,330 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .gifting-why-grid,.occasions-grid,.gift-product-row { grid-template-columns: 1fr; }
   .gifting-cta-box { padding: 32px 20px; }
 }
+/* ═══════════════════════════════════════════════
+   MOBILE RESPONSIVENESS FIXES
+   ═══════════════════════════════════════════════ */
+
+/* ── Fix 1: Global btn width-100% was breaking ALL buttons on mobile.
+      Scope it only to hero CTAs and standalone CTA rows. ── */
+@media(max-width:600px){
+  .btn-primary, .btn-secondary, .btn-whatsapp {
+    width: auto;
+    justify-content: center;
+  }
+  /* Only make full-width inside hero CTA row and explicit full-width containers */
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary,
+  .hero-ctas .btn-whatsapp,
+  .export-cta .btn-ghost,
+  .gifting-cta-box .btn-primary,
+  .gifting-cta-box .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  /* Product card buttons stay natural */
+  .product-link {
+    width: 100%;
+    display: block;
+  }
+  /* Gift enquire buttons stay natural */
+  .gift-enquire-btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
+
+/* ── Fix 2: Hero float badges overflow on small screens ── */
+@media(max-width:900px){
+  .hero-rating-badge {
+    right: 0;        /* was -10px, causing horizontal scroll */
+    top: 14px;
+    font-size: .72rem;
+    padding: 9px 12px;
+  }
+  .hero-float-badge {
+    padding: 10px 14px;
+    gap: 8px;
+    left: 0;
+  }
+  .hero-float-badge .num { font-size: 1.2rem; }
+}
+@media(max-width:600px){
+  /* Hide decorative floating badges on tiny screens — too cluttered */
+  .hero-float-badge,
+  .hero-rating-badge {
+    display: none;
+  }
+  /* Restore hero image aspect ratio to something taller on phone */
+  .hero-img-main {
+    aspect-ratio: 16/9;
+    max-height: 280px;
+  }
+}
+
+/* ── Fix 3: Section padding too large on mobile ── */
+@media(max-width:600px){
+  .products, .about, .export, .why, .reviews,
+  .export-map-sec, .domestic-map-sec, .compare-sec,
+  .order-track-sec, .bundle-sec, .newsletter-sec,
+  .qr-sec, .gifting-why, .gifting-occasions, .gift-ideas,
+  .testimonials-sec {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .contact {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .section-header {
+    margin-bottom: 32px;
+  }
+}
+
+/* ── Fix 4: Contact form box padding on mobile ── */
+@media(max-width:600px){
+  .contact-form-box {
+    padding: 26px 18px;
+    border-radius: var(--radius);
+  }
+  .contact-form-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* ── Fix 5: Newsletter box padding on mobile ── */
+@media(max-width:600px){
+  .newsletter-box {
+    padding: 32px 20px;
+  }
+  .nl-form {
+    flex-direction: column;
+  }
+  .nl-form input {
+    min-width: 0;
+    width: 100%;
+  }
+  .nl-form button {
+    width: 100%;
+  }
+}
+
+/* ── Fix 6: About image stack — too cramped at 600px ── */
+@media(max-width:600px){
+  .about-img-stack {
+    height: 260px;
+  }
+  .about-img-a {
+    width: 80%;
+  }
+  .about-img-b {
+    width: 45%;
+    border-width: 3px;
+  }
+  .about-yrs {
+    padding: 12px 14px;
+    right: 4px;
+  }
+  .about-yrs .num { font-size: 1.6rem; }
+}
+
+/* ── Fix 7: Product grid — 2 cols can be too tight at ≤380px ── */
+@media(max-width:380px){
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ── Fix 8: Hero section — very small phones ── */
+@media(max-width:380px){
+  .hero {
+    padding: 82px 4% 40px;
+  }
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero-badges {
+    gap: 6px;
+  }
+  .badge {
+    font-size: .68rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ── Fix 9: Compare table — ensure horizontal scroll on mobile ── */
+@media(max-width:600px){
+  .compare-table th,
+  .compare-table td {
+    padding: 10px 12px;
+    font-size: .78rem;
+    white-space: nowrap;
+  }
+  .compare-table th:first-child {
+    width: 110px;
+  }
+  .compare-controls {
+    gap: 7px;
+  }
+  .compare-pick {
+    padding: 7px 13px;
+    font-size: .76rem;
+  }
+}
+
+/* ── Fix 10: Bundle section on mobile ── */
+@media(max-width:480px){
+  .bundle-items {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .bundle-item {
+    padding: 10px;
+  }
+  .bundle-item img {
+    width: 48px;
+    height: 48px;
+  }
+  .bundle-summary {
+    padding: 20px 16px;
+  }
+}
+
+/* ── Fix 11: Footer on mobile ── */
+@media(max-width:600px){
+  .footer {
+    padding: 50px 5% 24px;
+  }
+  .footer-top {
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .f-tagline {
+    font-size: .82rem;
+  }
+}
+
+/* ── Fix 12: Gifting CTA box on mobile ── */
+@media(max-width:480px){
+  .gifting-cta-box {
+    padding: 30px 16px;
+  }
+  .gifting-cta-box h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ── Fix 13: Navbar hamburger area — prevent overflow ── */
+@media(max-width:400px){
+  .navbar {
+    padding: 0 4%;
+  }
+  .nav-logo-text .brand {
+    font-size: 1rem;
+  }
+}
+
+/* ── Fix 14: Export cards 1-col on mobile need better padding ── */
+@media(max-width:600px){
+  .export-card {
+    padding: 24px 20px;
+  }
+  .export-grid {
+    gap: 14px;
+  }
+}
+
+/* ── Fix 15: Map left panel on small screens ── */
+@media(max-width:480px){
+  .map-left-panel {
+    padding: 16px 14px;
+  }
+  .map-dest-list {
+    max-height: 130px;
+  }
+}
+
+/* ── Fix 16: Hero CTAs stack properly on mobile ── */
+@media(max-width:600px){
+  .hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-ctas a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ── Fix 17: Form row gap on 600px+ tablet range ── */
+@media(min-width:601px) and (max-width:740px){
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Fix 18: QR cards image sizing on mobile ── */
+@media(max-width:480px){
+  .qr-card img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ── Fix 19: Review carousel slide min-width on very small screens ── */
+@media(max-width:380px){
+  .carousel-slide {
+    min-width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* ── Fix 20: Prevent any horizontal overflow site-wide ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+.hero::before, .hero::after,
+.export::before, .bundle-sec::before {
+  /* Decorative blobs — ensure they don't cause scroll */
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+/* ── Fix 21: Testimonial cards full-width on mobile ── */
+@media(max-width:480px){
+  .testimonial-card,
+  .review-card {
+    padding: 20px 16px;
+  }
+}
+
+/* ── Fix 22: Track step text wrapping on very small phones ── */
+@media(max-width:380px){
+  .track-step h4 { font-size: .82rem; }
+  .track-step p  { font-size: .7rem; }
+  .track-icon    { width: 40px; height: 40px; font-size: 1rem; }
+}
+
+/* ── Fix 23: Occasions grid on gifting page ── */
+@media(max-width:480px){
+  .occasions-grid { gap: 12px; }
+  .occasion-card  { padding: 16px 12px; }
+}
+
+/* ── Fix 24: Gift product cards on very narrow screens ── */
+@media(max-width:480px){
+  .gift-product-row {
+    grid-template-columns: 1fr;
+  }
+  .gift-prod-card img { height: 160px; }
+}
+
 </style>
 </head>
 <body>
