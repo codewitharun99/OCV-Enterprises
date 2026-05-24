@@ -1205,9 +1205,48 @@ svg.leaflet-image-layer.leaflet-interactive path {
     @media(max-width:500px){ .pd-specs-grid{grid-template-columns:1fr;} .pd-related-grid{grid-template-columns:repeat(2,1fr);} .pd-title{font-size:1.5rem;} }
 
 
+
 /* ═══════════════════════════════════
-   TESTIMONIALS (Export / Wholesale / Gifting)
+   TERMS & CONDITIONS PAGE
 ═══════════════════════════════════ */
+.legal-page { background: var(--cream); padding: 70px 5%; }
+.legal-inner { max-width: 860px; margin: 0 auto; }
+.legal-body { margin-top: 44px; display: flex; flex-direction: column; gap: 0; }
+.legal-block { padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,.07); }
+.legal-block:last-of-type { border-bottom: none; }
+.legal-block h3 { font-family: 'Playfair Display', serif; color: var(--forest); font-size: 1.05rem; margin-bottom: 10px; }
+.legal-block p { color: var(--text-mid); font-size: .9rem; line-height: 1.75; }
+.legal-block a { color: var(--forest); text-decoration: underline; }
+.legal-updated { color: var(--text-light); font-size: .8rem; margin-top: 28px; font-style: italic; }
+
+/* ═══════════════════════════════════
+   FAQ PAGE
+═══════════════════════════════════ */
+.faq-page { background: #fff; padding: 70px 5%; }
+.faq-inner { max-width: 860px; margin: 0 auto; }
+.faq-category { margin-top: 48px; }
+.faq-cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--sage); }
+.faq-cat-icon { font-size: 1.5rem; }
+.faq-cat-header h3 { font-family: 'Playfair Display', serif; color: var(--forest); font-size: 1.2rem; }
+.faq-list { display: flex; flex-direction: column; gap: 4px; }
+.faq-item { border-radius: 10px; overflow: hidden; border: 1px solid rgba(0,0,0,.07); }
+.faq-q { width: 100%; background: var(--cream); border: none; text-align: left; padding: 16px 20px; font-size: .92rem; font-weight: 600; color: var(--forest); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: background .2s; line-height: 1.4; }
+.faq-q:hover { background: var(--sage); }
+.faq-arrow { font-size: 1rem; transition: transform .25s; flex-shrink: 0; color: var(--forest-light); }
+.faq-q.open .faq-arrow { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .25s; background: #fff; }
+.faq-a.open { max-height: 400px; padding: 16px 20px 20px; }
+.faq-a p { color: var(--text-mid); font-size: .88rem; line-height: 1.75; }
+.faq-a strong { color: var(--forest); }
+.faq-cta { text-align: center; margin-top: 52px; padding: 36px; background: linear-gradient(135deg, var(--sage) 0%, var(--cream) 100%); border-radius: 16px; }
+.faq-cta p { color: var(--forest); font-size: 1.05rem; font-weight: 600; margin-bottom: 16px; font-family: 'Playfair Display', serif; }
+
+/* Footer legal links */
+.footer-legal-links { margin-top: 8px; }
+.footer-legal-links a { color: rgba(255,255,255,.55); font-size: .82rem; text-decoration: underline; transition: color .2s; }
+.footer-legal-links a:hover { color: #fff; }
+.footer-legal-links span { color: rgba(255,255,255,.3); margin: 0 6px; }
+
 .testimonials-sec { background: var(--cream); padding: 70px 5%; }
 .testimonials-inner { max-width: 1100px; margin: 0 auto; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 44px; }
@@ -2424,6 +2463,268 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </div>
 </section>
 
+<!-- TERMS & CONDITIONS -->
+<section class="legal-page" id="terms" data-page="terms">
+  <div class="legal-inner">
+    <div class="section-header center reveal">
+      <span class="section-tag">Legal</span>
+      <h2 class="section-title">Terms &amp; Conditions</h2>
+      <div class="divider center"></div>
+      <p class="section-sub">Please read these terms carefully before placing an order or using our website. By engaging with OCV Industries, you agree to the following.</p>
+    </div>
+
+    <div class="legal-body reveal">
+      <div class="legal-block">
+        <h3>1. Company Information</h3>
+        <p>OCV Industries (operating under the brand <strong>Organico</strong>) is a registered manufacturer and exporter of coconut shell products, coir goods and coconut oils, based at Perundurai, Erode, Tamil Nadu — 638052, India. GST: 33**********1ZD | IEC: BVX*****4L.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>2. Products &amp; Descriptions</h3>
+        <p>All products are handcrafted from natural coconut shells. Minor variations in size, colour, grain pattern and texture are inherent to the natural material and are not considered defects. Product images are representative; actual finish may vary slightly batch to batch.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>3. Pricing &amp; Quotations</h3>
+        <p>All prices quoted via WhatsApp, email or catalogue are exclusive of GST, freight and packaging unless stated otherwise. Prices are valid for 7 days from the date of quotation. OCV Industries reserves the right to revise pricing without prior notice due to raw material costs or currency fluctuations.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>4. Orders &amp; Payment</h3>
+        <p>Orders are confirmed only upon receipt of a written Purchase Order and advance payment (typically 50% advance, balance before dispatch for new buyers). We accept NEFT/RTGS, UPI and wire transfers. Order confirmation will be issued via WhatsApp or email within 24 business hours.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>5. Minimum Order Quantity (MOQ)</h3>
+        <p>MOQ varies by product category — domestic wholesale orders typically start from 50 units per SKU, and export orders from 500 units or as agreed in writing. Custom and gifting orders may have separate MOQs as communicated during enquiry.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>6. Dispatch &amp; Delivery</h3>
+        <p>Standard production and dispatch lead time is 7–21 business days depending on order size and customisation. OCV Industries is not responsible for delays caused by courier partners, customs clearance, natural events or circumstances beyond our control. Tracking details will be shared upon dispatch.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>7. Inspection &amp; Quality</h3>
+        <p>All products undergo quality inspection before dispatch. Buyers are advised to inspect goods on receipt. Any damage or discrepancy claims must be raised within 48 hours of delivery with supporting photographs. We do not accept returns on goods that have been used, resold or altered.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>8. Returns &amp; Replacements</h3>
+        <p>Replacements are offered for goods damaged in transit (with proof) or for genuine manufacturing defects. Return shipping costs for approved claims are borne by OCV Industries. No cash refunds are issued; replacements or credit notes will be provided at our discretion.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>9. Intellectual Property</h3>
+        <p>All photographs, branding, content and designs on this website and our catalogues belong to OCV Industries. Reproduction, redistribution or commercial use without written consent is strictly prohibited.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>10. Export Compliance</h3>
+        <p>All export shipments comply with Indian export regulations. Buyers are responsible for import duties, customs clearance and compliance with their local regulations. OCV Industries will provide all necessary documents (Invoice, Packing List, Certificate of Origin, Phytosanitary Certificate) as applicable.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>11. Limitation of Liability</h3>
+        <p>OCV Industries' liability is limited to the value of the goods supplied. We are not liable for indirect, consequential or incidental losses arising from use of our products. Our products are not intended for medical or pharmaceutical use unless explicitly certified.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>12. Governing Law</h3>
+        <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of Erode, Tamil Nadu.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>13. Contact for Legal Matters</h3>
+        <p>For any queries regarding these terms, please contact us at:<br/>
+        📍 OCV Industries, Perundurai, Erode, Tamil Nadu — 638052<br/>
+        💬 <a href="https://wa.me/917373709996?text=Hi%20OCV%20Industries%21%20I%20have%20a%20query%20regarding%20your%20Terms%20%26%20Conditions." target="_blank">WhatsApp: +91 73737 09996</a></p>
+      </div>
+
+      <p class="legal-updated">Last updated: May 2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ PAGE -->
+<section class="faq-page" id="faq" data-page="faq">
+  <div class="faq-inner">
+    <div class="section-header center reveal">
+      <span class="section-tag">Help Centre</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="divider center"></div>
+      <p class="section-sub">Everything you need to know about our products, ordering, export, wholesale and gifting — answered simply and clearly.</p>
+    </div>
+
+    <!-- GENERAL -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">🌿</span>
+        <h3>General</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is OCV Industries / Organico? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>OCV Industries is a family-owned manufacturer and exporter based in Perundurai, Erode, Tamil Nadu. We craft premium, sustainable products from coconut shells, coir fibre and virgin coconut oil under the brand <strong>Organico</strong>. Every product is handmade, eco-friendly and food-safe where applicable.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are your products really eco-friendly? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes — 100%. We use coconut shells that would otherwise be discarded as agricultural waste. No trees are cut. Our products are biodegradable, free of plastics, and finished with natural lacquer or food-grade polish. We are committed to zero-waste manufacturing.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Where are you located and do you have a showroom? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We are based in Perundurai, Erode, Tamil Nadu — 638052. We welcome trade buyers and bulk purchasers to visit our manufacturing unit by prior appointment. Please WhatsApp us to schedule a visit.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you have a product catalogue? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes! Send us a WhatsApp message and we'll share our latest digital catalogue with product photos, dimensions, MOQ and pricing. You can also browse all products in the <strong>Products</strong> section of this website.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">🥥</span>
+        <h3>Products</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are the shell bowls and cups food-safe? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes. All our tableware (bowls, cups, spoons) is finished with food-grade, non-toxic lacquer. They are safe for dry and semi-dry food items. We recommend hand-washing only — do not soak in water for extended periods or use in microwave/dishwasher.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do products vary slightly in size or colour? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes, and that's what makes each piece unique! Since we use natural coconut shells, there will be minor variations in size (±5–10%), colour and grain pattern between pieces. This is a natural characteristic, not a defect. Sizes listed are approximate.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What finish options are available? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We offer three standard finishes: <strong>Natural/Matte</strong> (unsanded raw look), <strong>Polished/Glossy</strong> (lacquered high-shine), and <strong>Burnt/Charred</strong> (dark rustic finish). Custom finishes are available for bulk orders on request.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer custom sizes or shapes? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes, for orders of 500+ pieces we can accommodate custom dimensions, drilling, carving or engraving. Share your specifications on WhatsApp and our team will confirm feasibility and pricing within 48 hours.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is your coconut oil cold-pressed and pure? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes. We produce both <strong>Expeller Pressed</strong> and <strong>Virgin Coconut Oil (VCO)</strong> — no additives, no preservatives, no solvents. Our VCO is extracted from fresh coconut milk using traditional cold-press method, retaining all natural nutrients and fragrance.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDERING & PAYMENT -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">🛒</span>
+        <h3>Ordering &amp; Payment</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I place an order? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>The easiest way is to <strong>WhatsApp us at +91 73737 09996</strong> with the product name, quantity and delivery destination. You can also use the Contact form on this website. We'll send you a quotation within 24 business hours and confirm your order upon advance payment.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We accept <strong>NEFT / RTGS / IMPS</strong>, <strong>UPI</strong> (GPay, PhonePe, Paytm), and <strong>Bank Wire Transfer</strong> for international orders. For first-time buyers, we typically require 50% advance and balance before dispatch. Established buyers may negotiate credit terms.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the minimum order quantity (MOQ)? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>MOQ depends on the product and order type: <strong>Retail/gifting:</strong> no strict MOQ for standard items. <strong>Domestic wholesale:</strong> typically 50–100 pieces per SKU. <strong>Export orders:</strong> typically 500+ pieces or as agreed. <strong>Custom/branded orders:</strong> 100–500 pieces minimum depending on complexity.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How long does production and delivery take? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p><strong>Ready stock:</strong> dispatched within 2–3 business days. <strong>Made-to-order (standard):</strong> 7–14 business days. <strong>Large/custom orders:</strong> 15–30 business days. Delivery transit varies: 2–5 days within India, 10–30 days for international shipments depending on destination and shipping mode.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPORT -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">✈️</span>
+        <h3>Export</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Which countries do you export to? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We currently export to <strong>Europe</strong> (Germany, France, Netherlands, UK), <strong>Middle East</strong> (UAE, Saudi Arabia, Qatar), <strong>Australia, USA, Canada</strong> and several Southeast Asian countries. If your country is not listed, please contact us — we can likely ship there.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What export documents do you provide? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We provide all standard export documentation: <strong>Commercial Invoice, Packing List, Certificate of Origin, Phytosanitary Certificate, Bill of Lading / Airway Bill</strong>, and any additional certificates required by the destination country. Our IEC code is active and APEDA registered where applicable.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What are your export shipping terms (Incoterms)? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We typically ship on <strong>FOB (Chennai/Tuticorin)</strong> or <strong>CIF</strong> terms. We can also arrange <strong>EXW</strong> if you have your own freight forwarder. For air freight, we work with major couriers. Please mention your preferred Incoterm when requesting a quote.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can you handle large container shipments? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes — we handle LCL (Less than Container Load) and FCL (Full Container Load — 20ft and 40ft) shipments. We coordinate with freight forwarders and customs agents from our end. Container stuffing is done at our facility or at a nearby CFS.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHOLESALE -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">📦</span>
+        <h3>Wholesale</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer wholesale pricing for retailers and distributors? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes. We have a structured B2B pricing system with tiered discounts based on quantity. Retailers, hotel chains, spa chains, and distributors can register as wholesale buyers by WhatsApp-ing us with their business details. Volume-based discounts are available from 100 pieces per SKU.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I get samples before placing a bulk order? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes. Sample orders of 1–5 pieces per product are available. Samples are charged at MRP + actual courier cost. Sample cost is adjustable against your first bulk order of 100+ pieces. Please WhatsApp us to place a sample request.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer private labelling or custom branding? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes! We offer <strong>custom packaging, hang tags, stickers and box printing</strong> with your brand name and logo. Minimum order for private labelling is typically 200–500 pieces. Share your brand assets (logo, colours) and we'll send a mockup before production.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I become a wholesale distributor for OCV Industries? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Simply WhatsApp us with your business name, location and the products you're interested in. We'll evaluate the territory, discuss pricing and terms, and set you up as an authorised distributor. We currently have openings in several states for exclusive distribution partnerships.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIFTING -->
+    <div class="faq-category reveal">
+      <div class="faq-cat-header">
+        <span class="faq-cat-icon">🎁</span>
+        <h3>Gifting</h3>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I customise gift hampers with my logo for corporate gifting? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Absolutely. We specialise in corporate gift customisation. You can choose from our product range, and we'll add your <strong>company logo, brand colours and personalised message card</strong> inside a branded eco-box or jute bag. MOQ for branded corporate gifting is 50 sets.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How much advance notice do I need to give for festival gifting (e.g. Diwali)? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>We recommend placing orders at least <strong>3–4 weeks before your required delivery date</strong> for standard gifting, and <strong>6–8 weeks in advance</strong> for large branded/custom orders (500+ sets). Festival seasons (Diwali, New Year, Pongal) get booked fast — reach out early!</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What products are most popular for gifting? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Our bestselling gift items are: <strong>Shell Soy Candles</strong> (Diwali &amp; festive), <strong>Coconut Shell Purse</strong> (weddings &amp; corporate), <strong>T-Light Candle Holder Set</strong> (home décor gifting), <strong>Hanging Shell Planter</strong> (plant lovers), and <strong>Virgin Coconut Oil in gift packaging</strong> (wellness gifting).</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you deliver gift orders pan-India? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a"><p>Yes — we ship gift orders to all states in India via trusted courier partners (BlueDart, DTDC, Delhivery, India Post). For large event gifting, we can also arrange bulk dispatch to multiple addresses. Shipping cost depends on weight, volume and destination — we'll include it in your quote.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta reveal">
+      <p>Still have a question? We're just a message away.</p>
+      <a href="https://wa.me/917373709996?text=Hi%20OCV%20Industries%21%20I%20have%20a%20question%20and%20couldn%27t%20find%20the%20answer%20in%20the%20FAQ." target="_blank" class="btn-whatsapp">💬 Ask on WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact" data-page="contact">
   <div class="contact-inner">
@@ -2692,6 +2993,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <li><a href="#" onclick="showPage('bulkorder');return false;">Wholesale</a></li>
           <li><a href="#" onclick="showPage('gifting');return false;">Gifting</a></li>
           <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+          <li><a href="#" onclick="showPage('faq');return false;">FAQ</a></li>
+          <li><a href="#" onclick="showPage('terms');return false;">Terms &amp; Conditions</a></li>
         </ul>
       </div>
       <div class="f-col">
@@ -2722,6 +3025,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="footer-bottom">
       <p>© 2025 OCV Industries (Organico), Perundurai, Erode, Tamil Nadu — 638052. All rights reserved.</p>
       <p>Designed with 🌿 for the planet · GST: 33**1ZD · UDYAM-TN-07-****661</p>
+      <p class="footer-legal-links">
+        <a href="#" onclick="showPage('faq');return false;">FAQ</a>
+        <span>·</span>
+        <a href="#" onclick="showPage('terms');return false;">Terms &amp; Conditions</a>
+      </p>
     </div>
   </div>
 </footer>
@@ -2757,6 +3065,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
   // Mobile menu
   document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
   function closeMobile() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = btn.classList.contains('open');
+    // Close all open FAQs in same category
+    btn.closest('.faq-list').querySelectorAll('.faq-q.open').forEach(b => {
+      b.classList.remove('open');
+      b.closest('.faq-item').querySelector('.faq-a').classList.remove('open');
+    });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
 
   // Reveal on scroll
   const obs = new IntersectionObserver(entries => {
