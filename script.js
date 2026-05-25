@@ -282,7 +282,7 @@
     const qty = document.getElementById('bundle-qty').value;
     const items = ids.map(id => bundleSelected[id].name).join(', ');
     const msg = encodeURIComponent(`Hi OCV Enterprises! I want to build a custom eco gift bundle:\n\nProducts: ${items}\nQuantity: ${qty} pieces each\n\nPlease send me a quote with bulk discount.`);
-    window.open(`https://wa.me/918047522509?text=${msg}`, '_blank');
+    window.open(`https://wa.me/917373709996?text=${msg}`, '_blank');
   }
 
 
@@ -334,7 +334,7 @@
 
     // CTA links
     const waMsg = encodeURIComponent(`Hi OCV Enterprises! I am interested in "${p.name}" (MOQ: ${p.moq}). Please share details and a quote.`);
-    document.getElementById('pd-whatsapp').href = `https://wa.me/918047522509?text=${waMsg}`;
+    document.getElementById('pd-whatsapp').href = `https://wa.me/917373709996?text=${waMsg}`;
     document.getElementById('pd-indiamart').href = p.indiamart;
 
     // Related products

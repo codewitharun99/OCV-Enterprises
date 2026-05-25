@@ -2314,8 +2314,8 @@ function showPage(page) {
     document.querySelectorAll('[data-page="' + page + '"] .reveal, [data-page="' + page + '"] .rl, [data-page="' + page + '"] .rr, [data-page="' + page + '"] .stagger').forEach(el => obs.observe(el));
   }, 50);
 
-  // Scroll to top of page instantly (smooth causes visible flash on page switch)
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Scroll to top on page switch using standard behavior value.
+  window.scrollTo({ top: 0, behavior: 'auto' });
 
   // Invalidate Leaflet maps when their pages become visible
   if (page === 'export') {
