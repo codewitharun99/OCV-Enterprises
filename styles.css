@@ -407,7 +407,12 @@
     .map-dest-item strong { display:block; font-size:.82rem; font-weight:700; color:var(--forest); }
     .map-dest-item span { font-size:.72rem; color:var(--text-light); }
     .dest-dot { width:10px; height:10px; border-radius:50%; background:var(--forest); flex-shrink:0; }
-    .home-dot { width:14px; height:14px; background:var(--forest); border:2.5px solid var(--accent); }
+    .home-dot { width:14px; height:14px; background:#E8650A; border:2.5px solid #ffd8b8; }
+    .map-legend { display:flex; gap:18px; justify-content:flex-end; margin-top:10px; flex-wrap:wrap; }
+    .map-legend-item { display:flex; align-items:center; gap:6px; font-size:12px; color:#555; }
+    .legend-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+    .mfg-dot { background:#E8650A; border:2px solid #ffd8b8; }
+    .dest-leg-dot { background:var(--forest); }
     .map-panel-note { font-size:.75rem; color:var(--text-light); text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid var(--sage); }
     .leaflet-map-wrap { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); border:1.5px solid var(--sage-mid); }
     @media(max-width:900px) {
