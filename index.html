@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="leaflet.css" />
+  <link rel="stylesheet" href="leaflet.css" onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -1664,7 +1664,20 @@
   <span class="float-wa-tip">Chat with us!</span>
 </a>
 
-<script src="leaflet.js"></script>
+<script>
+  // Load Leaflet: try local first, fall back to CDN
+  (function() {
+    function loadLeaflet(src) {
+      var s = document.createElement('script');
+      s.src = src;
+      document.head.appendChild(s);
+    }
+    var local = document.createElement('script');
+    local.src = 'leaflet.js';
+    local.onerror = function() { loadLeaflet('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'); };
+    document.head.appendChild(local);
+  })();
+</script>
 <script>
   // Navbar scroll
   window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', scrollY > 40));
@@ -2136,12 +2149,22 @@ function showPage(page) {
   // Scroll to top of page
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // If switching to export page, invalidate Leaflet maps so they resize correctly
+  // Invalidate Leaflet maps when their pages become visible
   if (page === 'export') {
     setTimeout(() => {
       if (window._worldMap) window._worldMap.invalidateSize();
+    }, 120);
+    setTimeout(() => {
+      if (window._worldMap) window._worldMap.invalidateSize();
+    }, 500);
+  }
+  if (page === 'bulkorder') {
+    setTimeout(() => {
       if (window._indiaMap) window._indiaMap.invalidateSize();
     }, 120);
+    setTimeout(() => {
+      if (window._indiaMap) window._indiaMap.invalidateSize();
+    }, 500);
   }
 
   // Store current page
@@ -2155,6 +2178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script>
+function initMaps() {
 (function() {
   var FOREST = '#1A3D2B', ACCENT = '#a8d5b5';
   var TILES  = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -2247,9 +2271,12 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ══ INDIA MAP ══════════════════════════════════════ */
   var indiaEl = document.getElementById('india-map');
   if (indiaEl) {
+    /* India bounding box: SW [6.5, 68] → NE [37.5, 97.5] */
+    var indiaBounds = L.latLngBounds([6.5, 68.0], [37.5, 97.5]);
     var iMap = window._indiaMap = L.map('india-map', {
-      center: [22, 80], zoom: 5, minZoom: 4, maxZoom: 9,
-      scrollWheelZoom: false, zoomControl: true
+      center: [22.5, 82.5], zoom: 5, minZoom: 5, maxZoom: 9,
+      scrollWheelZoom: false, zoomControl: true,
+      maxBounds: indiaBounds.pad(0.1), maxBoundsViscosity: 0.8
     });
     L.tileLayer(TILES, { attribution: ATTR, maxZoom: 19 }).addTo(iMap);
 
@@ -2286,13 +2313,24 @@ document.addEventListener('DOMContentLoaded', function() {
         iItems.forEach(function(x) { x.classList.remove('active'); });
         li.classList.add('active');
         var mk = iMarkers[li.dataset.pin];
-        if (mk) { iMap.setView(mk.getLatLng(), 8); mk.openPopup(); }
+        if (mk) { iMap.setView(mk.getLatLng(), Math.min(8, iMap.getBoundsZoom(indiaBounds))); mk.openPopup(); }
       });
     });
 
     setTimeout(function(){ iMap.invalidateSize(); }, 400);
+    setTimeout(function(){ iMap.invalidateSize(); }, 900);
   }
 
+})();
+}
+
+// Run initMaps once Leaflet is confirmed loaded
+(function waitForLeaflet() {
+  if (typeof L !== 'undefined') {
+    initMaps();
+  } else {
+    setTimeout(waitForLeaflet, 50);
+  }
 })();
 
 </script>
