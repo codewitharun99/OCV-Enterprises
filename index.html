@@ -464,73 +464,6 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="reviews" id="reviews" data-page="contact">
-  <div class="reviews-inner">
-    <div class="section-header center reveal">
-      <span class="section-tag">Customer Reviews</span>
-      <h2 class="section-title">What Our Buyers Say</h2>
-      <div class="divider center"></div>
-      <p class="section-sub" style="margin:0 auto;">Rated 4.8★ on IndiaMART with 29 verified reviews from buyers across India and globally.</p>
-    </div>
-    <div class="carousel-wrap reveal">
-      <div class="carousel-track" id="review-track">
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"Excellent quality coconut shell bowls. Finish and packaging were perfect for our hotel chain — will place repeat bulk orders. Highly recommended."</p>
-            <div class="review-author"><div class="author-av">R</div><div><div class="author-name">Ravi Kumar</div><div class="author-loc">Hotel Chain Buyer, Chennai</div></div></div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"The soy wax coconut candles are a bestseller in our eco-gift store. Very responsive team, reasonable MOQ, and beautifully packaged products."</p>
-            <div class="review-author"><div class="author-av">P</div><div><div class="author-name">Priya Sharma</div><div class="author-loc">Gift Store Owner, Bangalore</div></div></div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"We import these products for our European retail brand. Quality is consistent across every shipment and export documentation is always in perfect order."</p>
-            <div class="review-author"><div class="author-av">M</div><div><div class="author-name">Marco Bianchi</div><div class="author-loc">Importer, Italy</div></div></div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"The hanging planters and incense holders are so unique — our café customers love them! Great pricing for bulk and super fast replies on WhatsApp."</p>
-            <div class="review-author"><div class="author-av">A</div><div><div class="author-name">Anjali Menon</div><div class="author-loc">Café Owner, Kochi</div></div></div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"Ordered coconut shell purses as corporate gifts — they were a huge hit! Very professional packaging and delivery was on time. Will order again soon."</p>
-            <div class="review-author"><div class="author-av">S</div><div><div class="author-name">Suresh Babu</div><div class="author-loc">Corporate Gifting, Hyderabad</div></div></div>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"Best coconut shell bowl supplier we've worked with. The cold pressed oil is also excellent quality. Truly a one-stop eco shop from Tamil Nadu."</p>
-            <div class="review-author"><div class="author-av">F</div><div><div class="author-name">Fatima Al-Rashid</div><div class="author-loc">Wholesale Buyer, UAE</div></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-arrows">
-        <button class="c-arrow" onclick="moveCarousel(-1)">&#8592;</button>
-        <button class="c-arrow" onclick="moveCarousel(1)">&#8594;</button>
-      </div>
-      <div class="carousel-dots" id="review-dots"></div>
-    </div>
-    <div style="text-align:center;margin-top:32px;" class="reveal">
-      <a href="https://wa.me/917373709996?text=Hi%20OCV%20Enterprises!%20I%27d%20like%20to%20know%20more%20about%20your%20customer%20reviews%20and%20testimonials." target="_blank" class="btn-secondary">Contact Us for References</a>
-    </div>
-  </div>
-</section>
-
-
 <!-- EXPORT TESTIMONIALS -->
 <section class="testimonials-sec" data-page="export">
   <div class="testimonials-inner">
@@ -1682,9 +1615,6 @@
           <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
           <li><a href="#" onclick="showPage('about');return false;">About Us</a></li>
           <li><a href="#" onclick="showPage('products');return false;">Products</a></li>
-          <li><a href="#" onclick="showPage('export');return false;">Export &amp; Bulk</a></li>
-          <li><a href="#" onclick="showPage('bulkorder');return false;">Wholesale</a></li>
-          <li><a href="#" onclick="showPage('gifting');return false;">Gifting</a></li>
           <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
           <li><a href="#" onclick="showPage('faq');return false;">FAQ</a></li>
           <li><a href="#" onclick="showPage('terms');return false;">Terms &amp; Conditions</a></li>
@@ -1693,14 +1623,9 @@
       <div class="f-col">
         <h4>Products</h4>
         <ul>
-          <li><a href="#" onclick="showPage('products');return false;">Coconut Shell Bowls</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Soy Wax Candles</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Coffee Cups</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Hanging Planters</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Incense Holders</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Coconut Oil</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Shell Purse &amp; Gifts</a></li>
-          <li><a href="#" onclick="showPage('products');return false;">Coir Products</a></li>
+          <li><a href="#" onclick="return openProductCategory('shell');">Coconut Shell</a></li>
+          <li><a href="#" onclick="return openProductCategory('coir');">Coconut Coir</a></li>
+          <li><a href="#" onclick="return openProductCategory('oil');">Coconut Oil</a></li>
         </ul>
       </div>
       <div class="f-col">
@@ -1907,6 +1832,18 @@
       const cardSub = subEl ? subEl.dataset.subcat : card.dataset.subcat;
       card.classList.toggle('hidden', sub !== 'all' && cardSub !== sub);
     });
+  }
+
+  function openProductCategory(cat) {
+    showPage('products');
+    switchCategory(cat);
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+      setTimeout(() => {
+        productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    }
+    return false;
   }
 
   // ── PRODUCT COMPARISON ──
